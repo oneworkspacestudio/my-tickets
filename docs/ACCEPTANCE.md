@@ -14,7 +14,7 @@ this report does not certify a clean VM, physical phone, reboot or service accou
 | Sprints, epics, milestones and workload | PASS | Persisted planning model and lifecycle/carryover tests; UI uses actual issue data |
 | Dashboards, reports and personal layouts | PASS | Persisted definitions and authorized calculations; charts have accessible data tables, CSV and print |
 | 10,000 issue search | PASS | 159–170 ms on this developer host; test fixture, not a production benchmark |
-| MyAccounts OIDC | PARTIAL | SDK identity mapping/cookie/session protection tested; final managed deployment receipt records live sign-in separately |
+| MyAccounts OIDC | PASS | Real managed MyAccounts sign-in, then Tickets without a second password in fresh setup, upgrade and rollback |
 | Git links, signature, replay and opt-in transitions | PASS | Signed synthetic webhook model tests, including an already-linked PR later merged |
 | Live Gitea repository and retry operations | UNVERIFIED | Explicit repository settings and resync supported; no owner repository used as a fixture |
 | My Drive attachment adapter | PARTIAL | Protected shared filesystem source; Tickets authorizes every file operation. A remote Drive API backend is not implemented |
@@ -22,7 +22,8 @@ this report does not certify a clean VM, physical phone, reboot or service accou
 | Backup / restore | PASS | Live encrypted snapshot restored to a fresh NTFS directory; both databases, accounts, dashboard and exact file bytes verified |
 | Windows SCM service | UNVERIFIED | Native commands implemented; elevated install/start/reboot not claimed |
 | Clean Windows machine | UNVERIFIED | Explicitly waived in favour of this machine |
-| Installer, upgrade, release and owner installation | UNVERIFIED | Delivery receipt is required; source integration alone is not delivery |
+| Installer, upgrade and independent recovery | PASS | Normal fresh105 setup,104 upgrade, synthetic independent update and verified rollback; NTFS private data, existing issue/files/binaries preserved |
+| Owner installation | UNVERIFIED | Reported separately after protected deployment |
 
 The final release evidence supersedes pending execution rows where it records a
 successful check. No synthetic Git test establishes successful live Gitea delivery.
