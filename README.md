@@ -55,3 +55,11 @@ The complete corresponding source is available in this repository and alongside
 releases. Network users can reach it through **Source & licences** in the app.
 Third-party components retain their respective licences; release notices identify
 the embedded dependencies and corresponding sources.
+
+### Managed deployment recommendation
+
+Use [One Workspace106 or newer](https://github.com/oneworkspacestudio/one-workspace/releases)
+when installing with Drive. Workspace105 is withdrawn because its Drive setup
+could precreate the empty Tickets folder before SDK ownership was established.
+The corrected manager safely prepares the folder and waits for Tickets readiness.
+My Tickets preview1 itself is unchanged. See [acceptance](docs/ACCEPTANCE.md).

@@ -13,7 +13,7 @@ this report does not certify a clean VM, physical phone, reboot or service accou
 | Issues, comments, files, boards and responsive UI | PASS | Real Chrome headless at 1440x1000 and 375x812, isolated profile; screenshots in release evidence |
 | Sprints, epics, milestones and workload | PASS | Persisted planning model and lifecycle/carryover tests; UI uses actual issue data |
 | Dashboards, reports and personal layouts | PASS | Persisted definitions and authorized calculations; charts have accessible data tables, CSV and print |
-| 10,000 issue search | PASS | 159–170 ms on this developer host; test fixture, not a production benchmark |
+| 10,000 issue search | PASS | 159â€“170 ms on this developer host; test fixture, not a production benchmark |
 | MyAccounts OIDC | PASS | Real managed MyAccounts sign-in, then Tickets without a second password in fresh setup, upgrade and rollback |
 | Git links, signature, replay and opt-in transitions | PASS | Signed synthetic webhook model tests, including an already-linked PR later merged |
 | Live Gitea repository and retry operations | UNVERIFIED | Explicit repository settings and resync supported; no owner repository used as a fixture |
@@ -22,8 +22,8 @@ this report does not certify a clean VM, physical phone, reboot or service accou
 | Backup / restore | PASS | Live encrypted snapshot restored to a fresh NTFS directory; both databases, accounts, dashboard and exact file bytes verified |
 | Windows SCM service | UNVERIFIED | Native commands implemented; elevated install/start/reboot not claimed |
 | Clean Windows machine | UNVERIFIED | Explicitly waived in favour of this machine |
-| Installer, upgrade and independent recovery | PASS | Normal fresh105 setup,104 upgrade, synthetic independent update and verified rollback; NTFS private data, existing issue/files/binaries preserved |
-| Owner installation | UNVERIFIED | Reported separately after protected deployment |
+| Installer, upgrade and independent recovery | PASS | Normal fresh106 setup,104-to-106 upgrade with Drive co-installed, synthetic independent update and verified rollback; NTFS private data, existing issue/files/binaries preserved |
+| Owner installation | PASS | Protected105-to-106 update, native readiness, SDK ownership, exact app hash, retained credentials/settings and33 supervised services healthy; owner-profile GUI check remains unverified |
 
 The final release evidence supersedes pending execution rows where it records a
 successful check. No synthetic Git test establishes successful live Gitea delivery.
@@ -43,3 +43,17 @@ use MyAccounts. No public registration is enabled. Attachments remain private by
 default when registered as a Drive source, because broad Drive membership cannot
 replace ticket project permissions. Public service exposure and Git/Drive access
 are configured by the owner, not silently enabled by the app.
+
+## Drive co-installation correction
+
+Use Workspace106 or newer with Drive. Workspace105 could create the empty Tickets
+attachment tree before the SDK ownership marker. The fix is in Workspace; this
+app's preview1 binary is unchanged. Real fresh106 and104-to-106 upgrade tests now
+include Drive, MyAccounts and Tickets. Seamless sign-in, issue creation, responsive
+UI, independent app update and rollback pass. The primary PC installation and
+protected remote sign-in redirect were checked without using owner data as a
+fixture. Chrome control stopped at its URL policy check, so no final owner-profile
+GUI or physical-phone acceptance is claimed. Public suite promotion is recorded
+in the Workspace delivery history separately.
+
+Workspace106 is publicly released and promoted with the signed Android companion. The authorized primary PC runs that corrected version with all33 supervised services healthy; app preview1 is unchanged.

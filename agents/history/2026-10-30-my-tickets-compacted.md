@@ -257,7 +257,7 @@ Source pushed to org main992225e8615baa0372b7f6dca2a523b20693f723, Actions disab
 
 ## Final native and managed acceptance checkpoint (supersedes pending rows above)
 
-# My Tickets implementation and delivery handoff — 2026-10-30
+# My Tickets implementation and delivery handoff â€” 2026-10-30
 
 User authorizes brief implementation, managed availability, source push, release
 and install on this PC. VM explicitly waived. No Actions, no owner test fixtures.
@@ -310,3 +310,29 @@ Task caches/evidence I:/Projects/tooling/my-tickets-20261030, small NTFS C fixtu
 frontend task dependencies and finished synthetic C fixtures removed after checks.
 No owner data used as development fixtures. Avoid global lint --fix on CRLF source;
 use read-only Mage lint. GOWORKoff release, I large Go temp, C only native CGO temp.
+
+## Drive co-installation and primary106 delivery checkpoint
+App1 unchanged/F112... remains public. Suite105 first owner startup failed: Drive
+precreated empty core/attachments before SDK app.json. Withdrawn105 from channel;
+immutable assets retained. Fixed in Workspace259f436/106, not by weakening native
+app validation: SDK ownership first, precise empty-layout migration, rejectfiles/
+foreign markers/reparse; explicit readyz update gate. Go regressions pass. Real
+fresh106 and104-to-106 upgrade with Accounts+Drive+Tickets pass, including native
+sign-in, issue create/mobile, independent synthetic2 update and rollback. Updated
+synthetic bundle base106; original105 fixture was correctly rejected as downgrade.
+Owner105-to-106 protected install now PASS:34 contracts,282 installed hashes and
+all credentials/settings retained;33 services healthy; SDK marker/ready/OIDC and
+remote sign-in redirect checked. Final owner-profile GUI blocked by Chrome URL
+policy; no workaround via owner profiles and no owner identity/data as fixture.
+Only thisPC targeted. Preview limits remain (remote Drive API/durable queue/due
+scheduling), app1 release unchanged, Suite106 publication still resuming draft
+assets afterHTTP408 at this checkpoint. Follow Workspace history for final public
+promotion. C task frontend/fixtures/disposablebuild cache cleaned; I has evidence.
+
+## Final public promotion
+Suite v0.3.0-preview.106 is now public,329 assets verified, signed Android10
+APK88070... anonymous download and public channel verified, promotione0accfe.
+No immutable assets replaced,105 withheld. Primary106/Tickets1 installed and
+healthy (33 supervised services), protected remote303 and nativeSDK ready/OIDC
+checked; no owner fixture/profile extraction. App1 code/binary remains8650/F112.
+Only documentation changed afterward. Source push/clean status is the final step.
