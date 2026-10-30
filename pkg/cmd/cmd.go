@@ -21,6 +21,7 @@ import (
 	"os"
 
 	"code.vikunja.io/api/pkg/config"
+	"code.vikunja.io/api/pkg/oneworkspace"
 
 	"github.com/spf13/cobra"
 )
@@ -56,6 +57,14 @@ func init() {
 
 // Execute starts the application
 func Execute() {
+	if len(os.Args) <= 1 || os.Args[1] != "upstream" {
+		if err := oneworkspace.Main(); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		return
+	}
+	os.Args = append([]string{os.Args[0]}, os.Args[2:]...)
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)

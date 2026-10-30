@@ -1,0 +1,8 @@
+{
+  "artifact": "upstream reference v2.7.1 Windows amd64 (not self-built)",
+  "imports": [
+    "KERNEL32.DLL",
+    "msvcrt.dll"
+  ],
+  "cleanVM": false
+}

@@ -1,0 +1,20 @@
+My Tickets - One Workspace
+Copyright 2026 One Workspace contributors.
+
+Based on Vikunja v2.7.1, commit
+5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0.
+Copyright 2018-present Vikunja and contributors.
+Licensed under GNU Affero General Public License, version 3 or later.
+The original LICENSE and upstream licence enforcement remain intact.
+
+Source: https://github.com/oneworkspacestudio/my-tickets
+Upstream: https://github.com/go-vikunja/vikunja
+The release includes corresponding application source and pinned dependency
+inventories. Source dependencies retain their own copyright and licences.
+
+One Workspace application-host SDK:
+https://github.com/oneworkspacestudio/one-workspace
+SQLite is embedded through github.com/mattn/go-sqlite3; no database product
+or server executable is required at runtime.
+
+My Tickets and One Workspace are independent of Atlassian/Jira.

@@ -1,66 +1,57 @@
-<img src="https://vikunja.io/images/vikunja-logo.svg" alt="" style="display: block;width: 50%;margin: 0 auto;" width="50%"/>
+# My Tickets
 
-[![Build Status](https://github.com/go-vikunja/vikunja/actions/workflows/ci.yml/badge.svg)](https://github.com/go-vikunja/vikunja/actions/workflows/ci.yml)
-[![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
-[![Install](https://img.shields.io/badge/download-v2.7.1-brightgreen.svg)](https://vikunja.io/docs/installing)
-[![Docker Pulls](https://img.shields.io/docker/pulls/vikunja/vikunja.svg)](https://hub.docker.com/r/vikunja/vikunja/)
-[![OpenAPI Docs](https://img.shields.io/badge/swagger-docs-brightgreen.svg)](https://try.vikunja.io/api/v2/docs)
+<p align="center"><img src="frontend/public/tickets.svg" alt="My Tickets" width="112"></p>
 
-# Vikunja
+Plan projects, track issues and see your team's progress in One Workspace.
 
-> The task manager you actually own. 
+Create bugs, stories and tasks with permanent issue keys. Organize work on a
+board or backlog, run sprints, connect related work through epics, and build
+shared dashboards from the issues you can access.
 
-If Vikunja is useful to you, please consider [supporting the project](https://vikunja.io/support/). You can [buy a coffee](https://www.buymeacoffee.com/kolaente), [sponsor on GitHub](https://github.com/sponsors/kolaente) or buy [a sticker pack](https://vikunja.io/stickers).
-We're also offering [a hosted version of Vikunja](https://vikunja.cloud/) if you want a hassle-free solution for yourself or your team.
-If you or your company needs admin panel, audit logs or time tracking, check out [Vikunja Pro](https://vikunja.io/pro/).
+![My Tickets issues](docs/screenshots/issues.png)
 
-> [!NOTE]
-> For the development of Vikunja, we're using LLM-Assisted coding tools in various parts of the codebase.
-> Most contributions made @tink-bot are built that way.
+[Dashboard](docs/screenshots/dashboard.png) · [Issue detail](docs/screenshots/issue-detail.png) ·
+[Board](docs/screenshots/board.png) · [Phone layout](docs/screenshots/mobile-issues.png)
 
-## Table of contents
+## Get started
 
-- [Security Reports](#security-reports)
-- [Features](#features)
-- [Docs](#docs)
-	- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-	- [Unsplash Images](#unsplash-images)
+Install or update [One Workspace](https://github.com/oneworkspacestudio/one-workspace).
+My Tickets belongs to **General** and is selected by default. Open it from your
+Workspace apps menu; your existing MyAccounts session signs you in.
 
-## Security Reports
+The Windows download also runs independently as **one MyTickets.exe**, with its
+interface, API and SQLite database embedded. Run it with a dedicated private data
+folder and open the setup link it prints. No Node, Docker or database server is
+needed at runtime. [Standalone setup and operations](docs/operations.md).
 
-If you find any security-related issues you don't want to disclose publicly, please use [the contact information on our website](https://vikunja.io/contact/#security).
+## Your work, together
 
-## Features
+- Issues, custom fields, configurable workflows, priorities, assignments and comments.
+- Filtered lists, a Kanban board, ordered backlog, sprints, epics and milestones.
+- Personal and shared dashboards, real reports, chart data, CSV export and printing.
+- Project permissions applied to issues, files, searches, reports and API access.
+- Git commit and pull request links, signed webhooks and manual resync.
+- Protected attachment storage connected to Drive in managed installations.
+- Scoped API credentials and [Codex/MCP access](docs/codex-mcp.md).
 
-See [the features page](https://vikunja.io/features/) on our website for a more exhaustive list or 
-try it on [try.vikunja.io](https://try.vikunja.io)!
+This is a preview. See the [acceptance report](docs/ACCEPTANCE.md) for tested
+capabilities, live integration checks and remaining limitations.
 
-## Docs
+## Guides
 
-* [Installing](https://vikunja.io/docs/installing/)
-* [Build from source](https://vikunja.io/docs/build-from-sources/)
-* [Development setup](https://vikunja.io/docs/development/)
-* [Magefile](https://vikunja.io/docs/magefile/)
-* [Testing](https://vikunja.io/docs/testing/)
+[Architecture](docs/architecture.md) · [MyAccounts](docs/oneaccount-oidc.md) ·
+[My Git](docs/mygit-gitea.md) · [Drive and attachments](docs/mydrive-storage.md) ·
+[Backups and recovery](docs/backup-restore.md) · [Building](docs/building.md) ·
+[API extensions](docs/api-extensions.md) · [Security](SECURITY.md)
 
-All docs can be found on [the Vikunja home page](https://vikunja.io/docs/).
+## Source and licence
 
-### Roadmap
+My Tickets is a modified distribution of **Vikunja v2.7.1**, pinned to
+`5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0`. It is licensed under
+[GNU AGPL version 3 or later](LICENSE). Upstream attribution and licensing checks
+are preserved. [Upstream and modification record](UPSTREAM.md).
 
-See [the roadmap](https://my.vikunja.cloud/share/QFyzYEmEYfSyQfTOmIRSwLUpkFjboaBqQCnaPmWd/auth) (hosted on Vikunja!) for more!
-
-## Contributing
-
-Please check out the contribution guidelines on [the website](https://vikunja.io/docs/development/).
-
-## License
-
-Most of this repository is licensed under [AGPL‑3.0‑or‑later](LICENSE).
-The contents of [`desktop/`](desktop/) are licensed under
-[GPL‑3.0‑or‑later](desktop/LICENSE).
-
-### Unsplash Images
-
-Background images from Unsplash are distributed under the [Unsplash License](https://unsplash.com/license). The license requires giving credit to the photographer and Unsplash. See [Unsplash’s terms](https://unsplash.com/terms) for more information.
+The complete corresponding source is available in this repository and alongside
+releases. Network users can reach it through **Source & licences** in the app.
+Third-party components retain their respective licences; release notices identify
+the embedded dependencies and corresponding sources.

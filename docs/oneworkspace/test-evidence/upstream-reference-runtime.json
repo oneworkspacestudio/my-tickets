@@ -1,0 +1,12 @@
+{
+  "sqliteWrites": true,
+  "customMyTicketsFeaturesTested": false,
+  "fixtureOnly": true,
+  "embeddedScriptServed": true,
+  "cleanWindowsVM": false,
+  "runtimePath": "Windows system directories only",
+  "initialFileCount": 1,
+  "forcedTerminationPersistence": true,
+  "artifact": "Official upstream v2.7.1 reference; not self-built",
+  "embeddedUI": true
+}

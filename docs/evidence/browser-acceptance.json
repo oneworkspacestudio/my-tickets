@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "runtime": "single Windows executable",
+  "browser": "Chrome headless, isolated profile",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "mobileViewport": [
+    375,
+    812
+  ],
+  "realUI": [
+    "sign-in",
+    "project creation",
+    "issue creation",
+    "workflow update",
+    "comment",
+    "attachment",
+    "table",
+    "board",
+    "dashboard",
+    "personal layout"
+  ],
+  "browserBearer": false,
+  "consoleErrors": [],
+  "ownerInstallationUsed": false,
+  "physicalPhone": false
+}

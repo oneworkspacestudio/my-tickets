@@ -1,0 +1,18 @@
+{
+  "file": "Vikunja-2.7.1-baseline.exe",
+  "sha256": "537e158c9b555878eeca190cbbda8f954b5886d33d26b0f5171cd26b96937772",
+  "machine": "0x8664",
+  "imports": [
+    "KERNEL32.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-time-l1-1-0.dll",
+    "api-ms-win-crt-utility-l1-1-0.dll",
+    "api-ms-win-crt-environment-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll"
+  ],
+  "delayImports": []
+}

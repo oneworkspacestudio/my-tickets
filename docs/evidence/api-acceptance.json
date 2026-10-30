@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "ownerInstallationUsed": false,
+  "viewerRead": true,
+  "viewerWriteDenied": true,
+  "hiddenProjectDenied": true,
+  "accountFence": true,
+  "scopedAgentReadWrite": true,
+  "agentScopeCreateDenied": true,
+  "agentHiddenProjectDenied": true,
+  "mcpInitialize": true,
+  "concurrentCreates": 16,
+  "uniqueKeys": 16,
+  "staleEditDenied": true,
+  "attachmentDeleteRestore": true,
+  "nativeLogoutRevoked": true
+}

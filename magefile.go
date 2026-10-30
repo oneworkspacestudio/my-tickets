@@ -38,7 +38,6 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"syscall"
 	"time"
 
 	apiv2 "code.vikunja.io/api/pkg/routes/api/v2"
@@ -304,26 +303,6 @@ func getRandomPort(ctx context.Context) (int, error) {
 	return l.Addr().(*net.TCPAddr).Port, nil
 }
 
-// setProcessGroup configures a command to run in its own process group,
-// so that all child processes can be killed together.
-func setProcessGroup(cmd *exec.Cmd) {
-	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
-}
-
-// killProcessGroup sends a signal to the entire process group of the given command.
-func killProcessGroup(cmd *exec.Cmd) error {
-	if cmd.Process == nil {
-		return nil
-	}
-	if pgid, err := syscall.Getpgid(cmd.Process.Pid); err == nil { // use best-effort to kill full process group
-		err = syscall.Kill(-pgid, syscall.SIGTERM)
-		if err != nil {
-			return err
-		}
-	}
-	return cmd.Wait()
-}
-
 // waitForHTTP polls a URL until it returns a 200 status or the timeout expires.
 func waitForHTTP(ctx context.Context, url string, timeout time.Duration) error {
 	deadline := time.Now().Add(timeout)
@@ -412,6 +391,23 @@ func goTestPackagesExcept(ctx context.Context, exclude ...string) ([]string, err
 	return packages, nil
 }
 
+// Tickets runs the isolated My Tickets feature and permission checks.
+func (Test) Tickets(ctx context.Context) error {
+	mg.Deps(initVars, ensureFrontendDistExists)
+	if err := runAndStreamOutput(ctx, "go", "test", goDetectVerboseFlag(), "-p", "1", "-timeout", "15m", "-short", "-run", "^TestOw", "./pkg/models"); err != nil {
+		return err
+	}
+	return runAndStreamOutput(ctx, "go", "test", goDetectVerboseFlag(), "-p", "1", "-timeout", "10m", "-short", "./pkg/modules/mcp", "./pkg/oneworkspace")
+}
+
+// Packaging runs the focused embedded-fixture, data-path and configuration checks.
+func (Test) Packaging(ctx context.Context) error {
+	mg.Deps(initVars, ensureFrontendDistExists)
+	return runAndStreamOutput(ctx, "go", "test", goDetectVerboseFlag(), "-p", "1", "-timeout", "10m", "-short",
+		"-run", "^(TestInitFixturesNamedTables|Test_resolveDatabasePath_Windows|TestServiceSecret|TestCheckDatabase_MemoryPath)$",
+		"./pkg/db", "./pkg/config", "./pkg/doctor", "./pkg/files")
+}
+
 // Feature runs the feature tests
 func (Test) Feature(ctx context.Context) error {
 	mg.Deps(initVars, ensureFrontendDistExists)
@@ -495,6 +491,10 @@ func (Test) E2EApi(ctx context.Context) error {
 //   - VIKUNJA_E2E_TESTING_TOKEN: Testing token for seed endpoints (default: random)
 //   - VIKUNJA_E2E_SKIP_BUILD: Set to "true" to skip rebuilding the API binary (default: false)
 func (Test) E2E(ctx context.Context, args string) error {
+	if args == "tickets" {
+		return runAndStreamOutput(ctx, "pwsh", "-NoProfile", "-File", "scripts/test-native-ui.ps1")
+	}
+
 	mg.Deps(initVars)
 
 	// Determine ports
@@ -566,7 +566,7 @@ func (Test) E2E(ctx context.Context, args string) error {
 	}
 	defer func() {
 		fmt.Println("\n--- Stopping API server ---")
-		if err := killProcessGroup(apiCmd); err != nil {
+		if err := killProcessGroup(ctx, apiCmd); err != nil {
 			fmt.Println("Failed to stop API server:", err)
 		}
 	}()
@@ -602,7 +602,7 @@ func (Test) E2E(ctx context.Context, args string) error {
 	}
 	defer func() {
 		fmt.Println("\n--- Stopping frontend preview server ---")
-		if err := killProcessGroup(frontendCmd); err != nil {
+		if err := killProcessGroup(ctx, frontendCmd); err != nil {
 			fmt.Println("Failed to stop API server:", err)
 		}
 	}()
@@ -1541,7 +1541,15 @@ func (Generate) FrontendClient(ctx context.Context) error {
 	}
 
 	cmd := exec.CommandContext(ctx, "pnpm", "run", "generate:api-client")
+	if script := os.Getenv("VIKUNJA_PNPM_SCRIPT"); script != "" {
+		cmd = exec.CommandContext(ctx, "node", script, "run", "generate:api-client")
+	} else if runtime.GOOS == "windows" {
+		cmd = exec.CommandContext(ctx, "cmd", "/d", "/c", "pnpm", "run", "generate:api-client")
+	}
 	cmd.Dir = "frontend"
+	if root := os.Getenv("VIKUNJA_FRONTEND_DIR"); root != "" {
+		cmd.Dir = root
+	}
 	cmd.Env = append(os.Environ(), "VIKUNJA_OPENAPI_INPUT="+specPath)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

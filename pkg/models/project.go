@@ -1185,6 +1185,14 @@ func checkProjectParentBeforeUpdate(s *xorm.Session, project, storedProject *Pro
 }
 
 func UpdateProject(s *xorm.Session, project *Project, auth web.Auth, updateProjectBackground bool) (err error) {
+	settings := &OwProjectSettings{}
+	found, checkErr := s.ID(project.ID).Get(settings)
+	if checkErr != nil {
+		return checkErr
+	}
+	if found && project.Identifier != settings.Key {
+		return owInvalid("Ticket project keys are permanent")
+	}
 	err = checkProjectBeforeUpdateOrDelete(s, project)
 	if err != nil {
 		return
@@ -1441,6 +1449,13 @@ func (p *Project) isDefaultProject(s *xorm.Session) (is bool, err error) {
 // @Failure 500 {object} models.Message "Internal error"
 // @Router /projects/{id} [delete]
 func (p *Project) Delete(s *xorm.Session, a web.Auth) (err error) {
+	managed, checkErr := s.ID(p.ID).Exist(&OwProjectSettings{})
+	if checkErr != nil {
+		return checkErr
+	}
+	if managed {
+		return owInvalid("Archive ticket projects to retain permanent issue identifiers and recovery history")
+	}
 	// The handler passes a stub without owner_id.
 	fullProject, err := GetProjectSimpleByID(s, p.ID)
 	if err != nil {

@@ -2,7 +2,7 @@
 
 import { client } from './client.gen.js';
 import { type Client, type ClientMeta, formDataBodySerializer, type Options as Options2, type RequestResult, type TDataShape, urlSearchParamsBodySerializer } from './client/index.js';
-import type { AdminInviteLinksCreateData, AdminInviteLinksCreateErrors, AdminInviteLinksCreateResponses, AdminInviteLinksDeleteData, AdminInviteLinksDeleteErrors, AdminInviteLinksDeleteResponses, AdminInviteLinksListData, AdminInviteLinksListErrors, AdminInviteLinksListResponses, AdminOverviewData, AdminOverviewErrors, AdminOverviewResponses, AdminProjectsListData, AdminProjectsListErrors, AdminProjectsListResponses, AdminProjectsPatchOwnerData, AdminProjectsPatchOwnerErrors, AdminProjectsPatchOwnerResponses, AdminTeamsListData, AdminTeamsListErrors, AdminTeamsListResponses, AdminUsersCreateData, AdminUsersCreateErrors, AdminUsersCreateResponses, AdminUsersDeleteData, AdminUsersDeleteErrors, AdminUsersDeleteResponses, AdminUsersListData, AdminUsersListErrors, AdminUsersListResponses, AdminUsersPasswordResetEmailData, AdminUsersPasswordResetEmailErrors, AdminUsersPasswordResetEmailResponses, AdminUsersPatchAdminData, AdminUsersPatchAdminErrors, AdminUsersPatchAdminResponses, AdminUsersPatchStatusData, AdminUsersPatchStatusErrors, AdminUsersPatchStatusResponses, AdminUsersSetPasswordData, AdminUsersSetPasswordErrors, AdminUsersSetPasswordResponses, AuthConfirmEmailData, AuthConfirmEmailErrors, AuthConfirmEmailResponses, AuthLinkShareData, AuthLinkShareErrors, AuthLinkShareResponses, AuthLoginData, AuthLoginErrors, AuthLoginResponses, AuthLogoutData, AuthLogoutErrors, AuthLogoutResponses, AuthOpenidCallbackData, AuthOpenidCallbackErrors, AuthOpenidCallbackResponses, AuthPasswordResetData, AuthPasswordResetErrors, AuthPasswordResetResponses, AuthPasswordTokenData, AuthPasswordTokenErrors, AuthPasswordTokenResponses, AuthRefreshTokenData, AuthRefreshTokenErrors, AuthRefreshTokenResponses, AuthRegisterData, AuthRegisterErrors, AuthRegisterResponses, AvatarGetData, AvatarGetErrors, AvatarGetResponses, BackgroundsUnsplashImageData, BackgroundsUnsplashImageErrors, BackgroundsUnsplashImageResponses, BackgroundsUnsplashSearchData, BackgroundsUnsplashSearchErrors, BackgroundsUnsplashSearchResponses, BackgroundsUnsplashThumbData, BackgroundsUnsplashThumbErrors, BackgroundsUnsplashThumbResponses, BotsCreateData, BotsCreateErrors, BotsCreateResponses, BotsDeleteData, BotsDeleteErrors, BotsDeleteResponses, BotsListData, BotsListErrors, BotsListResponses, BotsReadData, BotsReadErrors, BotsReadResponses, BotsUpdateData, BotsUpdateErrors, BotsUpdateResponses, BucketsCreateData, BucketsCreateErrors, BucketsCreateResponses, BucketsDeleteData, BucketsDeleteErrors, BucketsDeleteResponses, BucketsListData, BucketsListErrors, BucketsListResponses, BucketsUpdateData, BucketsUpdateErrors, BucketsUpdateResponses, CaldavTokensCreateData, CaldavTokensCreateErrors, CaldavTokensCreateResponses, CaldavTokensDeleteData, CaldavTokensDeleteErrors, CaldavTokensDeleteResponses, CaldavTokensListData, CaldavTokensListErrors, CaldavTokensListResponses, FiltersCreateData, FiltersCreateErrors, FiltersCreateResponses, FiltersDeleteData, FiltersDeleteErrors, FiltersDeleteResponses, FiltersReadData, FiltersReadErrors, FiltersReadResponses, FiltersUpdateData, FiltersUpdateErrors, FiltersUpdateResponses, HealthData, HealthErrors, HealthResponses, InfoData, InfoErrors, InfoResponses, InviteLinksCheckData, InviteLinksCheckErrors, InviteLinksCheckResponses, LabelsCreateData, LabelsCreateErrors, LabelsCreateResponses, LabelsDeleteData, LabelsDeleteErrors, LabelsDeleteResponses, LabelsListData, LabelsListErrors, LabelsListResponses, LabelsReadData, LabelsReadErrors, LabelsReadResponses, LabelsUpdateData, LabelsUpdateErrors, LabelsUpdateResponses, McpInfoData, McpInfoErrors, McpInfoResponses, MigrationCsvDetectData, MigrationCsvDetectErrors, MigrationCsvDetectResponses, MigrationCsvMigrateData, MigrationCsvMigrateErrors, MigrationCsvMigrateResponses, MigrationCsvPreviewData, MigrationCsvPreviewErrors, MigrationCsvPreviewResponses, MigrationCsvStatusData, MigrationCsvStatusErrors, MigrationCsvStatusResponses, MigrationMicrosoftTodoAuthData, MigrationMicrosoftTodoAuthErrors, MigrationMicrosoftTodoAuthResponses, MigrationMicrosoftTodoMigrateData, MigrationMicrosoftTodoMigrateErrors, MigrationMicrosoftTodoMigrateResponses, MigrationMicrosoftTodoStatusData, MigrationMicrosoftTodoStatusErrors, MigrationMicrosoftTodoStatusResponses, MigrationPlankaMigrateData, MigrationPlankaMigrateErrors, MigrationPlankaMigrateResponses, MigrationPlankaStatusData, MigrationPlankaStatusErrors, MigrationPlankaStatusResponses, MigrationTicktickMigrateData, MigrationTicktickMigrateErrors, MigrationTicktickMigrateResponses, MigrationTicktickStatusData, MigrationTicktickStatusErrors, MigrationTicktickStatusResponses, MigrationTodoistAuthData, MigrationTodoistAuthErrors, MigrationTodoistAuthResponses, MigrationTodoistMigrateData, MigrationTodoistMigrateErrors, MigrationTodoistMigrateResponses, MigrationTodoistStatusData, MigrationTodoistStatusErrors, MigrationTodoistStatusResponses, MigrationTrelloAuthData, MigrationTrelloAuthErrors, MigrationTrelloAuthResponses, MigrationTrelloMigrateData, MigrationTrelloMigrateErrors, MigrationTrelloMigrateResponses, MigrationTrelloStatusData, MigrationTrelloStatusErrors, MigrationTrelloStatusResponses, MigrationVikunjaFileMigrateData, MigrationVikunjaFileMigrateErrors, MigrationVikunjaFileMigrateResponses, MigrationVikunjaFileStatusData, MigrationVikunjaFileStatusErrors, MigrationVikunjaFileStatusResponses, MigrationWekanMigrateData, MigrationWekanMigrateErrors, MigrationWekanMigrateResponses, MigrationWekanStatusData, MigrationWekanStatusErrors, MigrationWekanStatusResponses, NotificationsAtomFeedData, NotificationsAtomFeedErrors, NotificationsAtomFeedResponses, NotificationsDeleteAllData, NotificationsDeleteAllErrors, NotificationsDeleteAllResponses, NotificationsListData, NotificationsListErrors, NotificationsListResponses, NotificationsMarkAllReadData, NotificationsMarkAllReadErrors, NotificationsMarkAllReadResponses, NotificationsMarkReadData, NotificationsMarkReadErrors, NotificationsMarkReadResponses, OauthAuthorizeData, OauthAuthorizeErrors, OauthAuthorizeResponses, OauthTokenData, OauthTokenErrors, OauthTokenResponses, PatchBotsReadData, PatchBotsReadErrors, PatchBotsReadResponses, PatchFiltersReadData, PatchFiltersReadErrors, PatchFiltersReadResponses, PatchLabelsReadData, PatchLabelsReadErrors, PatchLabelsReadResponses, PatchProjectsReadData, PatchProjectsReadErrors, PatchProjectsReadResponses, PatchProjectViewsReadData, PatchProjectViewsReadErrors, PatchProjectViewsReadResponses, PatchTaskCommentsReadData, PatchTaskCommentsReadErrors, PatchTaskCommentsReadResponses, PatchTasksReadData, PatchTasksReadErrors, PatchTasksReadResponses, PatchTeamsReadData, PatchTeamsReadErrors, PatchTeamsReadResponses, PatchTimeEntriesReadData, PatchTimeEntriesReadErrors, PatchTimeEntriesReadResponses, PatchUserGetAvatarProviderData, PatchUserGetAvatarProviderErrors, PatchUserGetAvatarProviderResponses, PatchUserSettingsReadData, PatchUserSettingsReadErrors, PatchUserSettingsReadResponses, ProjectsBackgroundDeleteData, ProjectsBackgroundDeleteErrors, ProjectsBackgroundDeleteResponses, ProjectsBackgroundGetData, ProjectsBackgroundGetErrors, ProjectsBackgroundGetResponses, ProjectsBackgroundUnsplashSetData, ProjectsBackgroundUnsplashSetErrors, ProjectsBackgroundUnsplashSetResponses, ProjectsBackgroundUploadData, ProjectsBackgroundUploadErrors, ProjectsBackgroundUploadResponses, ProjectsCreateData, ProjectsCreateErrors, ProjectsCreateResponses, ProjectsDeleteData, ProjectsDeleteErrors, ProjectsDeleteResponses, ProjectsDuplicateData, ProjectsDuplicateErrors, ProjectsDuplicateResponses, ProjectsListData, ProjectsListErrors, ProjectsListResponses, ProjectsReadData, ProjectsReadErrors, ProjectsReadResponses, ProjectsUpdateData, ProjectsUpdateErrors, ProjectsUpdateResponses, ProjectsUsersSearchData, ProjectsUsersSearchErrors, ProjectsUsersSearchResponses, ProjectTasksListData, ProjectTasksListErrors, ProjectTasksListResponses, ProjectTeamsCreateData, ProjectTeamsCreateErrors, ProjectTeamsCreateResponses, ProjectTeamsDeleteData, ProjectTeamsDeleteErrors, ProjectTeamsDeleteResponses, ProjectTeamsListData, ProjectTeamsListErrors, ProjectTeamsListResponses, ProjectTeamsUpdateData, ProjectTeamsUpdateErrors, ProjectTeamsUpdateResponses, ProjectTimeEntriesListData, ProjectTimeEntriesListErrors, ProjectTimeEntriesListResponses, ProjectUsersCreateData, ProjectUsersCreateErrors, ProjectUsersCreateResponses, ProjectUsersDeleteData, ProjectUsersDeleteErrors, ProjectUsersDeleteResponses, ProjectUsersListData, ProjectUsersListErrors, ProjectUsersListResponses, ProjectUsersUpdateData, ProjectUsersUpdateErrors, ProjectUsersUpdateResponses, ProjectViewBucketsTasksListData, ProjectViewBucketsTasksListErrors, ProjectViewBucketsTasksListResponses, ProjectViewsCreateData, ProjectViewsCreateErrors, ProjectViewsCreateResponses, ProjectViewsDeleteData, ProjectViewsDeleteErrors, ProjectViewsDeleteResponses, ProjectViewsListData, ProjectViewsListErrors, ProjectViewsListResponses, ProjectViewsReadData, ProjectViewsReadErrors, ProjectViewsReadResponses, ProjectViewsUpdateData, ProjectViewsUpdateErrors, ProjectViewsUpdateResponses, ProjectViewTasksListData, ProjectViewTasksListErrors, ProjectViewTasksListResponses, ReactionsCreateData, ReactionsCreateErrors, ReactionsCreateResponses, ReactionsDeleteData, ReactionsDeleteErrors, ReactionsDeleteResponses, ReactionsListData, ReactionsListErrors, ReactionsListResponses, SessionsDeleteData, SessionsDeleteErrors, SessionsDeleteResponses, SessionsListData, SessionsListErrors, SessionsListResponses, SharesCreateData, SharesCreateErrors, SharesCreateResponses, SharesDeleteData, SharesDeleteErrors, SharesDeleteResponses, SharesListData, SharesListErrors, SharesListResponses, SharesReadData, SharesReadErrors, SharesReadResponses, SubscriptionsCreateData, SubscriptionsCreateErrors, SubscriptionsCreateResponses, SubscriptionsDeleteData, SubscriptionsDeleteErrors, SubscriptionsDeleteResponses, TaskAssigneesBulkData, TaskAssigneesBulkErrors, TaskAssigneesBulkResponses, TaskAssigneesCreateData, TaskAssigneesCreateErrors, TaskAssigneesCreateResponses, TaskAssigneesDeleteData, TaskAssigneesDeleteErrors, TaskAssigneesDeleteResponses, TaskAssigneesListData, TaskAssigneesListErrors, TaskAssigneesListResponses, TaskAttachmentsDeleteData, TaskAttachmentsDeleteErrors, TaskAttachmentsDeleteResponses, TaskAttachmentsDownloadData, TaskAttachmentsDownloadErrors, TaskAttachmentsDownloadResponses, TaskAttachmentsListData, TaskAttachmentsListErrors, TaskAttachmentsListResponses, TaskAttachmentsPreviewData, TaskAttachmentsPreviewErrors, TaskAttachmentsPreviewResponses, TaskAttachmentsUploadData, TaskAttachmentsUploadErrors, TaskAttachmentsUploadResponses, TaskBucketUpdateData, TaskBucketUpdateErrors, TaskBucketUpdateResponses, TaskCommentsCreateData, TaskCommentsCreateErrors, TaskCommentsCreateResponses, TaskCommentsDeleteData, TaskCommentsDeleteErrors, TaskCommentsDeleteResponses, TaskCommentsListData, TaskCommentsListErrors, TaskCommentsListResponses, TaskCommentsReadData, TaskCommentsReadErrors, TaskCommentsReadResponses, TaskCommentsUpdateData, TaskCommentsUpdateErrors, TaskCommentsUpdateResponses, TaskLabelsBulkReplaceData, TaskLabelsBulkReplaceErrors, TaskLabelsBulkReplaceResponses, TaskLabelsCreateData, TaskLabelsCreateErrors, TaskLabelsCreateResponses, TaskLabelsDeleteData, TaskLabelsDeleteErrors, TaskLabelsDeleteResponses, TaskLabelsListData, TaskLabelsListErrors, TaskLabelsListResponses, TasksBulkCreateData, TasksBulkCreateErrors, TasksBulkCreateResponses, TasksBulkUpdateData, TasksBulkUpdateErrors, TasksBulkUpdateResponses, TasksCreateData, TasksCreateErrors, TasksCreateResponses, TasksDeleteData, TasksDeleteErrors, TasksDeleteResponses, TasksDuplicateData, TasksDuplicateErrors, TasksDuplicateResponses, TasksListData, TasksListErrors, TasksListResponses, TasksMarkReadData, TasksMarkReadErrors, TasksMarkReadResponses, TasksPositionUpdateData, TasksPositionUpdateErrors, TasksPositionUpdateResponses, TasksReadByIndexData, TasksReadByIndexErrors, TasksReadByIndexResponses, TasksReadData, TasksReadErrors, TasksReadResponses, TasksRelationsCreateData, TasksRelationsCreateErrors, TasksRelationsCreateResponses, TasksRelationsDeleteData, TasksRelationsDeleteErrors, TasksRelationsDeleteResponses, TasksUpdateData, TasksUpdateErrors, TasksUpdateResponses, TaskTimeEntriesListData, TaskTimeEntriesListErrors, TaskTimeEntriesListResponses, TeamsCreateData, TeamsCreateErrors, TeamsCreateResponses, TeamsDeleteData, TeamsDeleteErrors, TeamsDeleteResponses, TeamsListData, TeamsListErrors, TeamsListResponses, TeamsMembersAddData, TeamsMembersAddErrors, TeamsMembersAddResponses, TeamsMembersRemoveData, TeamsMembersRemoveErrors, TeamsMembersRemoveResponses, TeamsMembersToggleAdminData, TeamsMembersToggleAdminErrors, TeamsMembersToggleAdminResponses, TeamsReadData, TeamsReadErrors, TeamsReadResponses, TeamsUpdateData, TeamsUpdateErrors, TeamsUpdateResponses, TimeEntriesCreateData, TimeEntriesCreateErrors, TimeEntriesCreateResponses, TimeEntriesDeleteData, TimeEntriesDeleteErrors, TimeEntriesDeleteResponses, TimeEntriesListData, TimeEntriesListErrors, TimeEntriesListResponses, TimeEntriesReadData, TimeEntriesReadErrors, TimeEntriesReadResponses, TimeEntriesTimerStopData, TimeEntriesTimerStopErrors, TimeEntriesTimerStopResponses, TimeEntriesUpdateData, TimeEntriesUpdateErrors, TimeEntriesUpdateResponses, TokenCheckData, TokenCheckErrors, TokenCheckResponses, TokenRenewData, TokenRenewErrors, TokenRenewResponses, TokenRoutesData, TokenRoutesErrors, TokenRoutesResponses, TokensCreateData, TokensCreateErrors, TokensCreateResponses, TokensDeleteData, TokensDeleteErrors, TokensDeleteResponses, TokensListData, TokensListErrors, TokensListResponses, TokenTestData, TokenTestErrors, TokenTestResponses, TotpDisableData, TotpDisableErrors, TotpDisableResponses, TotpEnableData, TotpEnableErrors, TotpEnableResponses, TotpEnrollData, TotpEnrollErrors, TotpEnrollResponses, TotpGetData, TotpGetErrors, TotpGetResponses, TotpQrcodeData, TotpQrcodeErrors, TotpQrcodeResponses, UserAvatarUploadData, UserAvatarUploadErrors, UserAvatarUploadResponses, UserCancelEmailUpdateData, UserCancelEmailUpdateErrors, UserCancelEmailUpdateResponses, UserChangePasswordData, UserChangePasswordErrors, UserChangePasswordResponses, UserDeletionCancelData, UserDeletionCancelErrors, UserDeletionCancelResponses, UserDeletionConfirmData, UserDeletionConfirmErrors, UserDeletionConfirmResponses, UserDeletionRequestData, UserDeletionRequestErrors, UserDeletionRequestResponses, UserExportDownloadData, UserExportDownloadErrors, UserExportDownloadResponses, UserExportRequestData, UserExportRequestErrors, UserExportRequestResponses, UserExportStatusData, UserExportStatusErrors, UserExportStatusResponses, UserGetAvatarProviderData, UserGetAvatarProviderErrors, UserGetAvatarProviderResponses, UserResendEmailConfirmationData, UserResendEmailConfirmationErrors, UserResendEmailConfirmationResponses, UserSetAvatarProviderData, UserSetAvatarProviderErrors, UserSetAvatarProviderResponses, UserSettingsReadData, UserSettingsReadErrors, UserSettingsReadResponses, UserShowData, UserShowErrors, UserShowResponses, UsersSearchData, UsersSearchErrors, UsersSearchResponses, UserTimezonesData, UserTimezonesErrors, UserTimezonesResponses, UserUpdateEmailData, UserUpdateEmailErrors, UserUpdateEmailResponses, UserUpdateSettingsData, UserUpdateSettingsErrors, UserUpdateSettingsResponses, UserWebhooksCreateData, UserWebhooksCreateErrors, UserWebhooksCreateResponses, UserWebhooksDeleteData, UserWebhooksDeleteErrors, UserWebhooksDeleteResponses, UserWebhooksEventsData, UserWebhooksEventsErrors, UserWebhooksEventsResponses, UserWebhooksListData, UserWebhooksListErrors, UserWebhooksListResponses, UserWebhooksUpdateData, UserWebhooksUpdateErrors, UserWebhooksUpdateResponses, WebhooksCreateData, WebhooksCreateErrors, WebhooksCreateResponses, WebhooksDeleteData, WebhooksDeleteErrors, WebhooksDeleteResponses, WebhooksEventsListData, WebhooksEventsListErrors, WebhooksEventsListResponses, WebhooksListData, WebhooksListErrors, WebhooksListResponses, WebhooksUpdateData, WebhooksUpdateErrors, WebhooksUpdateResponses } from './types.gen.js';
+import type { AdminInviteLinksCreateData, AdminInviteLinksCreateErrors, AdminInviteLinksCreateResponses, AdminInviteLinksDeleteData, AdminInviteLinksDeleteErrors, AdminInviteLinksDeleteResponses, AdminInviteLinksListData, AdminInviteLinksListErrors, AdminInviteLinksListResponses, AdminOverviewData, AdminOverviewErrors, AdminOverviewResponses, AdminProjectsListData, AdminProjectsListErrors, AdminProjectsListResponses, AdminProjectsPatchOwnerData, AdminProjectsPatchOwnerErrors, AdminProjectsPatchOwnerResponses, AdminTeamsListData, AdminTeamsListErrors, AdminTeamsListResponses, AdminUsersCreateData, AdminUsersCreateErrors, AdminUsersCreateResponses, AdminUsersDeleteData, AdminUsersDeleteErrors, AdminUsersDeleteResponses, AdminUsersListData, AdminUsersListErrors, AdminUsersListResponses, AdminUsersPasswordResetEmailData, AdminUsersPasswordResetEmailErrors, AdminUsersPasswordResetEmailResponses, AdminUsersPatchAdminData, AdminUsersPatchAdminErrors, AdminUsersPatchAdminResponses, AdminUsersPatchStatusData, AdminUsersPatchStatusErrors, AdminUsersPatchStatusResponses, AdminUsersSetPasswordData, AdminUsersSetPasswordErrors, AdminUsersSetPasswordResponses, AuthConfirmEmailData, AuthConfirmEmailErrors, AuthConfirmEmailResponses, AuthLinkShareData, AuthLinkShareErrors, AuthLinkShareResponses, AuthLoginData, AuthLoginErrors, AuthLoginResponses, AuthLogoutData, AuthLogoutErrors, AuthLogoutResponses, AuthOpenidCallbackData, AuthOpenidCallbackErrors, AuthOpenidCallbackResponses, AuthPasswordResetData, AuthPasswordResetErrors, AuthPasswordResetResponses, AuthPasswordTokenData, AuthPasswordTokenErrors, AuthPasswordTokenResponses, AuthRefreshTokenData, AuthRefreshTokenErrors, AuthRefreshTokenResponses, AuthRegisterData, AuthRegisterErrors, AuthRegisterResponses, AvatarGetData, AvatarGetErrors, AvatarGetResponses, BackgroundsUnsplashImageData, BackgroundsUnsplashImageErrors, BackgroundsUnsplashImageResponses, BackgroundsUnsplashSearchData, BackgroundsUnsplashSearchErrors, BackgroundsUnsplashSearchResponses, BackgroundsUnsplashThumbData, BackgroundsUnsplashThumbErrors, BackgroundsUnsplashThumbResponses, BotsCreateData, BotsCreateErrors, BotsCreateResponses, BotsDeleteData, BotsDeleteErrors, BotsDeleteResponses, BotsListData, BotsListErrors, BotsListResponses, BotsReadData, BotsReadErrors, BotsReadResponses, BotsUpdateData, BotsUpdateErrors, BotsUpdateResponses, BucketsCreateData, BucketsCreateErrors, BucketsCreateResponses, BucketsDeleteData, BucketsDeleteErrors, BucketsDeleteResponses, BucketsListData, BucketsListErrors, BucketsListResponses, BucketsUpdateData, BucketsUpdateErrors, BucketsUpdateResponses, CaldavTokensCreateData, CaldavTokensCreateErrors, CaldavTokensCreateResponses, CaldavTokensDeleteData, CaldavTokensDeleteErrors, CaldavTokensDeleteResponses, CaldavTokensListData, CaldavTokensListErrors, CaldavTokensListResponses, FiltersCreateData, FiltersCreateErrors, FiltersCreateResponses, FiltersDeleteData, FiltersDeleteErrors, FiltersDeleteResponses, FiltersReadData, FiltersReadErrors, FiltersReadResponses, FiltersUpdateData, FiltersUpdateErrors, FiltersUpdateResponses, HealthData, HealthErrors, HealthResponses, InfoData, InfoErrors, InfoResponses, InviteLinksCheckData, InviteLinksCheckErrors, InviteLinksCheckResponses, LabelsCreateData, LabelsCreateErrors, LabelsCreateResponses, LabelsDeleteData, LabelsDeleteErrors, LabelsDeleteResponses, LabelsListData, LabelsListErrors, LabelsListResponses, LabelsReadData, LabelsReadErrors, LabelsReadResponses, LabelsUpdateData, LabelsUpdateErrors, LabelsUpdateResponses, McpInfoData, McpInfoErrors, McpInfoResponses, MigrationCsvDetectData, MigrationCsvDetectErrors, MigrationCsvDetectResponses, MigrationCsvMigrateData, MigrationCsvMigrateErrors, MigrationCsvMigrateResponses, MigrationCsvPreviewData, MigrationCsvPreviewErrors, MigrationCsvPreviewResponses, MigrationCsvStatusData, MigrationCsvStatusErrors, MigrationCsvStatusResponses, MigrationMicrosoftTodoAuthData, MigrationMicrosoftTodoAuthErrors, MigrationMicrosoftTodoAuthResponses, MigrationMicrosoftTodoMigrateData, MigrationMicrosoftTodoMigrateErrors, MigrationMicrosoftTodoMigrateResponses, MigrationMicrosoftTodoStatusData, MigrationMicrosoftTodoStatusErrors, MigrationMicrosoftTodoStatusResponses, MigrationPlankaMigrateData, MigrationPlankaMigrateErrors, MigrationPlankaMigrateResponses, MigrationPlankaStatusData, MigrationPlankaStatusErrors, MigrationPlankaStatusResponses, MigrationTicktickMigrateData, MigrationTicktickMigrateErrors, MigrationTicktickMigrateResponses, MigrationTicktickStatusData, MigrationTicktickStatusErrors, MigrationTicktickStatusResponses, MigrationTodoistAuthData, MigrationTodoistAuthErrors, MigrationTodoistAuthResponses, MigrationTodoistMigrateData, MigrationTodoistMigrateErrors, MigrationTodoistMigrateResponses, MigrationTodoistStatusData, MigrationTodoistStatusErrors, MigrationTodoistStatusResponses, MigrationTrelloAuthData, MigrationTrelloAuthErrors, MigrationTrelloAuthResponses, MigrationTrelloMigrateData, MigrationTrelloMigrateErrors, MigrationTrelloMigrateResponses, MigrationTrelloStatusData, MigrationTrelloStatusErrors, MigrationTrelloStatusResponses, MigrationVikunjaFileMigrateData, MigrationVikunjaFileMigrateErrors, MigrationVikunjaFileMigrateResponses, MigrationVikunjaFileStatusData, MigrationVikunjaFileStatusErrors, MigrationVikunjaFileStatusResponses, MigrationWekanMigrateData, MigrationWekanMigrateErrors, MigrationWekanMigrateResponses, MigrationWekanStatusData, MigrationWekanStatusErrors, MigrationWekanStatusResponses, NotificationsAtomFeedData, NotificationsAtomFeedErrors, NotificationsAtomFeedResponses, NotificationsDeleteAllData, NotificationsDeleteAllErrors, NotificationsDeleteAllResponses, NotificationsListData, NotificationsListErrors, NotificationsListResponses, NotificationsMarkAllReadData, NotificationsMarkAllReadErrors, NotificationsMarkAllReadResponses, NotificationsMarkReadData, NotificationsMarkReadErrors, NotificationsMarkReadResponses, OauthAuthorizeData, OauthAuthorizeErrors, OauthAuthorizeResponses, OauthTokenData, OauthTokenErrors, OauthTokenResponses, PatchBotsReadData, PatchBotsReadErrors, PatchBotsReadResponses, PatchFiltersReadData, PatchFiltersReadErrors, PatchFiltersReadResponses, PatchLabelsReadData, PatchLabelsReadErrors, PatchLabelsReadResponses, PatchProjectsReadData, PatchProjectsReadErrors, PatchProjectsReadResponses, PatchProjectViewsReadData, PatchProjectViewsReadErrors, PatchProjectViewsReadResponses, PatchTaskCommentsReadData, PatchTaskCommentsReadErrors, PatchTaskCommentsReadResponses, PatchTasksReadData, PatchTasksReadErrors, PatchTasksReadResponses, PatchTeamsReadData, PatchTeamsReadErrors, PatchTeamsReadResponses, PatchTicketsDashboardsReadData, PatchTicketsDashboardsReadErrors, PatchTicketsDashboardsReadResponses, PatchTicketsGitSettingsReadData, PatchTicketsGitSettingsReadErrors, PatchTicketsGitSettingsReadResponses, PatchTicketsIssuesReadData, PatchTicketsIssuesReadErrors, PatchTicketsIssuesReadResponses, PatchTicketsProjectSettingsReadData, PatchTicketsProjectSettingsReadErrors, PatchTicketsProjectSettingsReadResponses, PatchTicketsSprintsReadData, PatchTicketsSprintsReadErrors, PatchTicketsSprintsReadResponses, PatchTicketsViewsReadData, PatchTicketsViewsReadErrors, PatchTicketsViewsReadResponses, PatchTimeEntriesReadData, PatchTimeEntriesReadErrors, PatchTimeEntriesReadResponses, PatchUserGetAvatarProviderData, PatchUserGetAvatarProviderErrors, PatchUserGetAvatarProviderResponses, PatchUserSettingsReadData, PatchUserSettingsReadErrors, PatchUserSettingsReadResponses, ProjectsBackgroundDeleteData, ProjectsBackgroundDeleteErrors, ProjectsBackgroundDeleteResponses, ProjectsBackgroundGetData, ProjectsBackgroundGetErrors, ProjectsBackgroundGetResponses, ProjectsBackgroundUnsplashSetData, ProjectsBackgroundUnsplashSetErrors, ProjectsBackgroundUnsplashSetResponses, ProjectsBackgroundUploadData, ProjectsBackgroundUploadErrors, ProjectsBackgroundUploadResponses, ProjectsCreateData, ProjectsCreateErrors, ProjectsCreateResponses, ProjectsDeleteData, ProjectsDeleteErrors, ProjectsDeleteResponses, ProjectsDuplicateData, ProjectsDuplicateErrors, ProjectsDuplicateResponses, ProjectsListData, ProjectsListErrors, ProjectsListResponses, ProjectsReadData, ProjectsReadErrors, ProjectsReadResponses, ProjectsUpdateData, ProjectsUpdateErrors, ProjectsUpdateResponses, ProjectsUsersSearchData, ProjectsUsersSearchErrors, ProjectsUsersSearchResponses, ProjectTasksListData, ProjectTasksListErrors, ProjectTasksListResponses, ProjectTeamsCreateData, ProjectTeamsCreateErrors, ProjectTeamsCreateResponses, ProjectTeamsDeleteData, ProjectTeamsDeleteErrors, ProjectTeamsDeleteResponses, ProjectTeamsListData, ProjectTeamsListErrors, ProjectTeamsListResponses, ProjectTeamsUpdateData, ProjectTeamsUpdateErrors, ProjectTeamsUpdateResponses, ProjectTimeEntriesListData, ProjectTimeEntriesListErrors, ProjectTimeEntriesListResponses, ProjectUsersCreateData, ProjectUsersCreateErrors, ProjectUsersCreateResponses, ProjectUsersDeleteData, ProjectUsersDeleteErrors, ProjectUsersDeleteResponses, ProjectUsersListData, ProjectUsersListErrors, ProjectUsersListResponses, ProjectUsersUpdateData, ProjectUsersUpdateErrors, ProjectUsersUpdateResponses, ProjectViewBucketsTasksListData, ProjectViewBucketsTasksListErrors, ProjectViewBucketsTasksListResponses, ProjectViewsCreateData, ProjectViewsCreateErrors, ProjectViewsCreateResponses, ProjectViewsDeleteData, ProjectViewsDeleteErrors, ProjectViewsDeleteResponses, ProjectViewsListData, ProjectViewsListErrors, ProjectViewsListResponses, ProjectViewsReadData, ProjectViewsReadErrors, ProjectViewsReadResponses, ProjectViewsUpdateData, ProjectViewsUpdateErrors, ProjectViewsUpdateResponses, ProjectViewTasksListData, ProjectViewTasksListErrors, ProjectViewTasksListResponses, ReactionsCreateData, ReactionsCreateErrors, ReactionsCreateResponses, ReactionsDeleteData, ReactionsDeleteErrors, ReactionsDeleteResponses, ReactionsListData, ReactionsListErrors, ReactionsListResponses, SessionsDeleteData, SessionsDeleteErrors, SessionsDeleteResponses, SessionsListData, SessionsListErrors, SessionsListResponses, SharesCreateData, SharesCreateErrors, SharesCreateResponses, SharesDeleteData, SharesDeleteErrors, SharesDeleteResponses, SharesListData, SharesListErrors, SharesListResponses, SharesReadData, SharesReadErrors, SharesReadResponses, SubscriptionsCreateData, SubscriptionsCreateErrors, SubscriptionsCreateResponses, SubscriptionsDeleteData, SubscriptionsDeleteErrors, SubscriptionsDeleteResponses, TaskAssigneesBulkData, TaskAssigneesBulkErrors, TaskAssigneesBulkResponses, TaskAssigneesCreateData, TaskAssigneesCreateErrors, TaskAssigneesCreateResponses, TaskAssigneesDeleteData, TaskAssigneesDeleteErrors, TaskAssigneesDeleteResponses, TaskAssigneesListData, TaskAssigneesListErrors, TaskAssigneesListResponses, TaskAttachmentsDeleteData, TaskAttachmentsDeleteErrors, TaskAttachmentsDeleteResponses, TaskAttachmentsDownloadData, TaskAttachmentsDownloadErrors, TaskAttachmentsDownloadResponses, TaskAttachmentsListData, TaskAttachmentsListErrors, TaskAttachmentsListResponses, TaskAttachmentsPreviewData, TaskAttachmentsPreviewErrors, TaskAttachmentsPreviewResponses, TaskAttachmentsUploadData, TaskAttachmentsUploadErrors, TaskAttachmentsUploadResponses, TaskBucketUpdateData, TaskBucketUpdateErrors, TaskBucketUpdateResponses, TaskCommentsCreateData, TaskCommentsCreateErrors, TaskCommentsCreateResponses, TaskCommentsDeleteData, TaskCommentsDeleteErrors, TaskCommentsDeleteResponses, TaskCommentsListData, TaskCommentsListErrors, TaskCommentsListResponses, TaskCommentsReadData, TaskCommentsReadErrors, TaskCommentsReadResponses, TaskCommentsUpdateData, TaskCommentsUpdateErrors, TaskCommentsUpdateResponses, TaskLabelsBulkReplaceData, TaskLabelsBulkReplaceErrors, TaskLabelsBulkReplaceResponses, TaskLabelsCreateData, TaskLabelsCreateErrors, TaskLabelsCreateResponses, TaskLabelsDeleteData, TaskLabelsDeleteErrors, TaskLabelsDeleteResponses, TaskLabelsListData, TaskLabelsListErrors, TaskLabelsListResponses, TasksBulkCreateData, TasksBulkCreateErrors, TasksBulkCreateResponses, TasksBulkUpdateData, TasksBulkUpdateErrors, TasksBulkUpdateResponses, TasksCreateData, TasksCreateErrors, TasksCreateResponses, TasksDeleteData, TasksDeleteErrors, TasksDeleteResponses, TasksDuplicateData, TasksDuplicateErrors, TasksDuplicateResponses, TasksListData, TasksListErrors, TasksListResponses, TasksMarkReadData, TasksMarkReadErrors, TasksMarkReadResponses, TasksPositionUpdateData, TasksPositionUpdateErrors, TasksPositionUpdateResponses, TasksReadByIndexData, TasksReadByIndexErrors, TasksReadByIndexResponses, TasksReadData, TasksReadErrors, TasksReadResponses, TasksRelationsCreateData, TasksRelationsCreateErrors, TasksRelationsCreateResponses, TasksRelationsDeleteData, TasksRelationsDeleteErrors, TasksRelationsDeleteResponses, TasksUpdateData, TasksUpdateErrors, TasksUpdateResponses, TaskTimeEntriesListData, TaskTimeEntriesListErrors, TaskTimeEntriesListResponses, TeamsCreateData, TeamsCreateErrors, TeamsCreateResponses, TeamsDeleteData, TeamsDeleteErrors, TeamsDeleteResponses, TeamsListData, TeamsListErrors, TeamsListResponses, TeamsMembersAddData, TeamsMembersAddErrors, TeamsMembersAddResponses, TeamsMembersRemoveData, TeamsMembersRemoveErrors, TeamsMembersRemoveResponses, TeamsMembersToggleAdminData, TeamsMembersToggleAdminErrors, TeamsMembersToggleAdminResponses, TeamsReadData, TeamsReadErrors, TeamsReadResponses, TeamsUpdateData, TeamsUpdateErrors, TeamsUpdateResponses, TicketsAttachmentsDownloadData, TicketsAttachmentsDownloadErrors, TicketsAttachmentsDownloadResponses, TicketsAttachmentsListData, TicketsAttachmentsListErrors, TicketsAttachmentsListResponses, TicketsAttachmentsStateData, TicketsAttachmentsStateErrors, TicketsAttachmentsStateResponses, TicketsAttachmentsUploadData, TicketsAttachmentsUploadErrors, TicketsAttachmentsUploadResponses, TicketsBulkData, TicketsBulkErrors, TicketsBulkResponses, TicketsCatalogData, TicketsCatalogErrors, TicketsCatalogResponses, TicketsDashboardDataData, TicketsDashboardDataErrors, TicketsDashboardDataResponses, TicketsDashboardLayoutData, TicketsDashboardLayoutErrors, TicketsDashboardLayoutResponses, TicketsDashboardsCreateData, TicketsDashboardsCreateErrors, TicketsDashboardsCreateResponses, TicketsDashboardsDeleteData, TicketsDashboardsDeleteErrors, TicketsDashboardsDeleteResponses, TicketsDashboardsListData, TicketsDashboardsListErrors, TicketsDashboardsListResponses, TicketsDashboardsReadData, TicketsDashboardsReadErrors, TicketsDashboardsReadResponses, TicketsDashboardsUpdateData, TicketsDashboardsUpdateErrors, TicketsDashboardsUpdateResponses, TicketsDashboardTemplateData, TicketsDashboardTemplateErrors, TicketsDashboardTemplateResponses, TicketsGitLinksData, TicketsGitLinksErrors, TicketsGitLinksResponses, TicketsGitResyncData, TicketsGitResyncErrors, TicketsGitResyncResponses, TicketsGitSettingsReadData, TicketsGitSettingsReadErrors, TicketsGitSettingsReadResponses, TicketsGitSettingsUpdateData, TicketsGitSettingsUpdateErrors, TicketsGitSettingsUpdateResponses, TicketsGitWebhookData, TicketsGitWebhookErrors, TicketsGitWebhookResponses, TicketsIssueActivityData, TicketsIssueActivityErrors, TicketsIssueActivityResponses, TicketsIssueDuplicateData, TicketsIssueDuplicateErrors, TicketsIssueDuplicateResponses, TicketsIssueMoveData, TicketsIssueMoveErrors, TicketsIssueMoveResponses, TicketsIssuesCreateData, TicketsIssuesCreateErrors, TicketsIssuesCreateResponses, TicketsIssuesDeleteData, TicketsIssuesDeleteErrors, TicketsIssuesDeleteResponses, TicketsIssuesListData, TicketsIssuesListErrors, TicketsIssuesListResponses, TicketsIssuesReadData, TicketsIssuesReadErrors, TicketsIssuesReadResponses, TicketsIssuesUpdateData, TicketsIssuesUpdateErrors, TicketsIssuesUpdateResponses, TicketsProjectCreateData, TicketsProjectCreateErrors, TicketsProjectCreateResponses, TicketsProjectSettingsReadData, TicketsProjectSettingsReadErrors, TicketsProjectSettingsReadResponses, TicketsProjectSettingsUpdateData, TicketsProjectSettingsUpdateErrors, TicketsProjectSettingsUpdateResponses, TicketsQueryData, TicketsQueryErrors, TicketsQueryResponses, TicketsReportData, TicketsReportErrors, TicketsReportResponses, TicketsSprintCloseData, TicketsSprintCloseErrors, TicketsSprintCloseResponses, TicketsSprintsCreateData, TicketsSprintsCreateErrors, TicketsSprintsCreateResponses, TicketsSprintsDeleteData, TicketsSprintsDeleteErrors, TicketsSprintsDeleteResponses, TicketsSprintsListData, TicketsSprintsListErrors, TicketsSprintsListResponses, TicketsSprintsReadData, TicketsSprintsReadErrors, TicketsSprintsReadResponses, TicketsSprintStartData, TicketsSprintStartErrors, TicketsSprintStartResponses, TicketsSprintsUpdateData, TicketsSprintsUpdateErrors, TicketsSprintsUpdateResponses, TicketsViewsCreateData, TicketsViewsCreateErrors, TicketsViewsCreateResponses, TicketsViewsDeleteData, TicketsViewsDeleteErrors, TicketsViewsDeleteResponses, TicketsViewsListData, TicketsViewsListErrors, TicketsViewsListResponses, TicketsViewsReadData, TicketsViewsReadErrors, TicketsViewsReadResponses, TicketsViewsUpdateData, TicketsViewsUpdateErrors, TicketsViewsUpdateResponses, TimeEntriesCreateData, TimeEntriesCreateErrors, TimeEntriesCreateResponses, TimeEntriesDeleteData, TimeEntriesDeleteErrors, TimeEntriesDeleteResponses, TimeEntriesListData, TimeEntriesListErrors, TimeEntriesListResponses, TimeEntriesReadData, TimeEntriesReadErrors, TimeEntriesReadResponses, TimeEntriesTimerStopData, TimeEntriesTimerStopErrors, TimeEntriesTimerStopResponses, TimeEntriesUpdateData, TimeEntriesUpdateErrors, TimeEntriesUpdateResponses, TokenCheckData, TokenCheckErrors, TokenCheckResponses, TokenRenewData, TokenRenewErrors, TokenRenewResponses, TokenRoutesData, TokenRoutesErrors, TokenRoutesResponses, TokensCreateData, TokensCreateErrors, TokensCreateResponses, TokensDeleteData, TokensDeleteErrors, TokensDeleteResponses, TokensListData, TokensListErrors, TokensListResponses, TokenTestData, TokenTestErrors, TokenTestResponses, TotpDisableData, TotpDisableErrors, TotpDisableResponses, TotpEnableData, TotpEnableErrors, TotpEnableResponses, TotpEnrollData, TotpEnrollErrors, TotpEnrollResponses, TotpGetData, TotpGetErrors, TotpGetResponses, TotpQrcodeData, TotpQrcodeErrors, TotpQrcodeResponses, UserAvatarUploadData, UserAvatarUploadErrors, UserAvatarUploadResponses, UserCancelEmailUpdateData, UserCancelEmailUpdateErrors, UserCancelEmailUpdateResponses, UserChangePasswordData, UserChangePasswordErrors, UserChangePasswordResponses, UserDeletionCancelData, UserDeletionCancelErrors, UserDeletionCancelResponses, UserDeletionConfirmData, UserDeletionConfirmErrors, UserDeletionConfirmResponses, UserDeletionRequestData, UserDeletionRequestErrors, UserDeletionRequestResponses, UserExportDownloadData, UserExportDownloadErrors, UserExportDownloadResponses, UserExportRequestData, UserExportRequestErrors, UserExportRequestResponses, UserExportStatusData, UserExportStatusErrors, UserExportStatusResponses, UserGetAvatarProviderData, UserGetAvatarProviderErrors, UserGetAvatarProviderResponses, UserResendEmailConfirmationData, UserResendEmailConfirmationErrors, UserResendEmailConfirmationResponses, UserSetAvatarProviderData, UserSetAvatarProviderErrors, UserSetAvatarProviderResponses, UserSettingsReadData, UserSettingsReadErrors, UserSettingsReadResponses, UserShowData, UserShowErrors, UserShowResponses, UsersSearchData, UsersSearchErrors, UsersSearchResponses, UserTimezonesData, UserTimezonesErrors, UserTimezonesResponses, UserUpdateEmailData, UserUpdateEmailErrors, UserUpdateEmailResponses, UserUpdateSettingsData, UserUpdateSettingsErrors, UserUpdateSettingsResponses, UserWebhooksCreateData, UserWebhooksCreateErrors, UserWebhooksCreateResponses, UserWebhooksDeleteData, UserWebhooksDeleteErrors, UserWebhooksDeleteResponses, UserWebhooksEventsData, UserWebhooksEventsErrors, UserWebhooksEventsResponses, UserWebhooksListData, UserWebhooksListErrors, UserWebhooksListResponses, UserWebhooksUpdateData, UserWebhooksUpdateErrors, UserWebhooksUpdateResponses, WebhooksCreateData, WebhooksCreateErrors, WebhooksCreateResponses, WebhooksDeleteData, WebhooksDeleteErrors, WebhooksDeleteResponses, WebhooksEventsListData, WebhooksEventsListErrors, WebhooksEventsListResponses, WebhooksListData, WebhooksListErrors, WebhooksListResponses, WebhooksUpdateData, WebhooksUpdateErrors, WebhooksUpdateResponses } from './types.gen.js';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean, TResponse = unknown> = Options2<TData, ThrowOnError, TResponse> & {
     /**
@@ -3156,6 +3156,1070 @@ export const teamsMembersToggleAdmin = <ThrowOnError extends boolean = true>(opt
         }],
     url: '/teams/{team}/members/{user}/admin',
     ...options
+});
+
+/**
+ * Download an attachment
+ *
+ * Authorizes current issue membership before streaming bytes; filenames cannot select paths.
+ */
+export const ticketsAttachmentsDownload = <ThrowOnError extends boolean = true>(options: Options<TicketsAttachmentsDownloadData, ThrowOnError>): RequestResult<TicketsAttachmentsDownloadResponses, TicketsAttachmentsDownloadErrors, ThrowOnError> => (options.client ?? client).get<TicketsAttachmentsDownloadResponses, TicketsAttachmentsDownloadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/attachments/{id}',
+    ...options
+});
+
+/**
+ * Delete or restore an attachment
+ *
+ * Requires write permission. Recoverable deletion retains bytes and history.
+ */
+export const ticketsAttachmentsState = <ThrowOnError extends boolean = true>(options: Options<TicketsAttachmentsStateData, ThrowOnError>): RequestResult<TicketsAttachmentsStateResponses, TicketsAttachmentsStateErrors, ThrowOnError> => (options.client ?? client).put<TicketsAttachmentsStateResponses, TicketsAttachmentsStateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/attachments/{id}/state',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Apply an atomic bulk change
+ *
+ * All selected issues must authorize and validate before commit. A failure rolls back every change.
+ */
+export const ticketsBulk = <ThrowOnError extends boolean = true>(options: Options<TicketsBulkData, ThrowOnError>): RequestResult<TicketsBulkResponses, TicketsBulkErrors, ThrowOnError> => (options.client ?? client).post<TicketsBulkResponses, TicketsBulkErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/bulk',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * List accessible ticket projects
+ *
+ * Includes role and workflow configuration only for projects the caller can read.
+ */
+export const ticketsCatalog = <ThrowOnError extends boolean = true>(options?: Options<TicketsCatalogData, ThrowOnError>): RequestResult<TicketsCatalogResponses, TicketsCatalogErrors, ThrowOnError> => (options?.client ?? client).get<TicketsCatalogResponses, TicketsCatalogErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/catalog',
+    ...options
+});
+
+/**
+ * Create a dashboard from a template
+ *
+ * Creates a private dashboard from actual authorized issue data; Personal defaults to assigned work.
+ */
+export const ticketsDashboardTemplate = <ThrowOnError extends boolean = true>(options: Options<TicketsDashboardTemplateData, ThrowOnError>): RequestResult<TicketsDashboardTemplateResponses, TicketsDashboardTemplateErrors, ThrowOnError> => (options.client ?? client).post<TicketsDashboardTemplateResponses, TicketsDashboardTemplateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboard-templates/{name}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * List ticket dashboards
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsDashboardsList = <ThrowOnError extends boolean = true>(options?: Options<TicketsDashboardsListData, ThrowOnError>): RequestResult<TicketsDashboardsListResponses, TicketsDashboardsListErrors, ThrowOnError> => (options?.client ?? client).get<TicketsDashboardsListResponses, TicketsDashboardsListErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards',
+    ...options
+});
+
+/**
+ * Create ticket dashboards
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsDashboardsCreate = <ThrowOnError extends boolean = true>(options: Options<TicketsDashboardsCreateData, ThrowOnError>): RequestResult<TicketsDashboardsCreateResponses, TicketsDashboardsCreateErrors, ThrowOnError> => (options.client ?? client).post<TicketsDashboardsCreateResponses, TicketsDashboardsCreateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Delete ticket dashboards
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsDashboardsDelete = <ThrowOnError extends boolean = true>(options: Options<TicketsDashboardsDeleteData, ThrowOnError>): RequestResult<TicketsDashboardsDeleteResponses, TicketsDashboardsDeleteErrors, ThrowOnError> => (options.client ?? client).delete<TicketsDashboardsDeleteResponses, TicketsDashboardsDeleteErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards/{id}',
+    ...options
+});
+
+/**
+ * Read ticket dashboards
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsDashboardsRead = <ThrowOnError extends boolean = true>(options: Options<TicketsDashboardsReadData, ThrowOnError>): RequestResult<TicketsDashboardsReadResponses, TicketsDashboardsReadErrors, ThrowOnError> => (options.client ?? client).get<TicketsDashboardsReadResponses, TicketsDashboardsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards/{id}',
+    ...options
+});
+
+/**
+ * Update ticket dashboards (partial)
+ *
+ * Partial update operation supporting both JSON Merge Patch & JSON Patch updates.
+ */
+export const patchTicketsDashboardsRead = <ThrowOnError extends boolean = true>(options: Options<PatchTicketsDashboardsReadData, ThrowOnError>): RequestResult<PatchTicketsDashboardsReadResponses, PatchTicketsDashboardsReadErrors, ThrowOnError> => (options.client ?? client).patch<PatchTicketsDashboardsReadResponses, PatchTicketsDashboardsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json-patch+json',
+        ...options.headers
+    }
+});
+
+/**
+ * Update ticket dashboards
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsDashboardsUpdate = <ThrowOnError extends boolean = true>(options: Options<TicketsDashboardsUpdateData, ThrowOnError>): RequestResult<TicketsDashboardsUpdateResponses, TicketsDashboardsUpdateErrors, ThrowOnError> => (options.client ?? client).put<TicketsDashboardsUpdateResponses, TicketsDashboardsUpdateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Compute dashboard widgets
+ *
+ * Every widget is calculated with the current viewer's project permissions. Definitions and personal layouts persist independently.
+ */
+export const ticketsDashboardData = <ThrowOnError extends boolean = true>(options: Options<TicketsDashboardDataData, ThrowOnError>): RequestResult<TicketsDashboardDataResponses, TicketsDashboardDataErrors, ThrowOnError> => (options.client ?? client).get<TicketsDashboardDataResponses, TicketsDashboardDataErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards/{id}/data',
+    ...options
+});
+
+/**
+ * Save a personal widget layout
+ *
+ * Viewers can personalize positions and dimensions without changing shared definitions or filters.
+ */
+export const ticketsDashboardLayout = <ThrowOnError extends boolean = true>(options: Options<TicketsDashboardLayoutData, ThrowOnError>): RequestResult<TicketsDashboardLayoutResponses, TicketsDashboardLayoutErrors, ThrowOnError> => (options.client ?? client).post<TicketsDashboardLayoutResponses, TicketsDashboardLayoutErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/dashboards/{id}/layout',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * List ticket issues
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsIssuesList = <ThrowOnError extends boolean = true>(options?: Options<TicketsIssuesListData, ThrowOnError>): RequestResult<TicketsIssuesListResponses, TicketsIssuesListErrors, ThrowOnError> => (options?.client ?? client).get<TicketsIssuesListResponses, TicketsIssuesListErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues',
+    ...options
+});
+
+/**
+ * Create ticket issues
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsIssuesCreate = <ThrowOnError extends boolean = true>(options: Options<TicketsIssuesCreateData, ThrowOnError>): RequestResult<TicketsIssuesCreateResponses, TicketsIssuesCreateErrors, ThrowOnError> => (options.client ?? client).post<TicketsIssuesCreateResponses, TicketsIssuesCreateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Delete ticket issues
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsIssuesDelete = <ThrowOnError extends boolean = true>(options: Options<TicketsIssuesDeleteData, ThrowOnError>): RequestResult<TicketsIssuesDeleteResponses, TicketsIssuesDeleteErrors, ThrowOnError> => (options.client ?? client).delete<TicketsIssuesDeleteResponses, TicketsIssuesDeleteErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}',
+    ...options
+});
+
+/**
+ * Read ticket issues
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsIssuesRead = <ThrowOnError extends boolean = true>(options: Options<TicketsIssuesReadData, ThrowOnError>): RequestResult<TicketsIssuesReadResponses, TicketsIssuesReadErrors, ThrowOnError> => (options.client ?? client).get<TicketsIssuesReadResponses, TicketsIssuesReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}',
+    ...options
+});
+
+/**
+ * Update ticket issues (partial)
+ *
+ * Partial update operation supporting both JSON Merge Patch & JSON Patch updates.
+ */
+export const patchTicketsIssuesRead = <ThrowOnError extends boolean = true>(options: Options<PatchTicketsIssuesReadData, ThrowOnError>): RequestResult<PatchTicketsIssuesReadResponses, PatchTicketsIssuesReadErrors, ThrowOnError> => (options.client ?? client).patch<PatchTicketsIssuesReadResponses, PatchTicketsIssuesReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json-patch+json',
+        ...options.headers
+    }
+});
+
+/**
+ * Update ticket issues
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsIssuesUpdate = <ThrowOnError extends boolean = true>(options: Options<TicketsIssuesUpdateData, ThrowOnError>): RequestResult<TicketsIssuesUpdateResponses, TicketsIssuesUpdateErrors, ThrowOnError> => (options.client ?? client).put<TicketsIssuesUpdateResponses, TicketsIssuesUpdateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Read issue audit history
+ *
+ * Authorizes against the current issue project before returning server-recorded actors and events.
+ */
+export const ticketsIssueActivity = <ThrowOnError extends boolean = true>(options: Options<TicketsIssueActivityData, ThrowOnError>): RequestResult<TicketsIssueActivityResponses, TicketsIssueActivityErrors, ThrowOnError> => (options.client ?? client).get<TicketsIssueActivityResponses, TicketsIssueActivityErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}/activity',
+    ...options
+});
+
+/**
+ * List issue attachments
+ *
+ * Requires issue read permission. Includes recoverable deletion state.
+ */
+export const ticketsAttachmentsList = <ThrowOnError extends boolean = true>(options: Options<TicketsAttachmentsListData, ThrowOnError>): RequestResult<TicketsAttachmentsListResponses, TicketsAttachmentsListErrors, ThrowOnError> => (options.client ?? client).get<TicketsAttachmentsListResponses, TicketsAttachmentsListErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}/attachments',
+    ...options
+});
+
+/**
+ * Upload an attachment
+ *
+ * Streams a file into the protected Drive source, with issue write authorization, SHA256 and a 64 MB cap.
+ */
+export const ticketsAttachmentsUpload = <ThrowOnError extends boolean = true>(options: Options<TicketsAttachmentsUploadData, ThrowOnError>): RequestResult<TicketsAttachmentsUploadResponses, TicketsAttachmentsUploadErrors, ThrowOnError> => (options.client ?? client).post<TicketsAttachmentsUploadResponses, TicketsAttachmentsUploadErrors, ThrowOnError>({
+    ...formDataBodySerializer,
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}/attachments',
+    ...options,
+    headers: {
+        'Content-Type': null,
+        ...options.headers
+    }
+});
+
+/**
+ * Duplicate an issue
+ *
+ * Requires source read and project create permission; creates a new permanent identifier and audit record.
+ */
+export const ticketsIssueDuplicate = <ThrowOnError extends boolean = true>(options: Options<TicketsIssueDuplicateData, ThrowOnError>): RequestResult<TicketsIssueDuplicateResponses, TicketsIssueDuplicateErrors, ThrowOnError> => (options.client ?? client).post<TicketsIssueDuplicateResponses, TicketsIssueDuplicateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}/duplicate',
+    ...options
+});
+
+/**
+ * Read issue Git links
+ *
+ * Authorizes the issue before returning its commit and pull request links.
+ */
+export const ticketsGitLinks = <ThrowOnError extends boolean = true>(options: Options<TicketsGitLinksData, ThrowOnError>): RequestResult<TicketsGitLinksResponses, TicketsGitLinksErrors, ThrowOnError> => (options.client ?? client).get<TicketsGitLinksResponses, TicketsGitLinksErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}/git',
+    ...options
+});
+
+/**
+ * Move an issue to another project
+ *
+ * Authorizes both projects and retains a resolvable old-key alias.
+ */
+export const ticketsIssueMove = <ThrowOnError extends boolean = true>(options: Options<TicketsIssueMoveData, ThrowOnError>): RequestResult<TicketsIssueMoveResponses, TicketsIssueMoveErrors, ThrowOnError> => (options.client ?? client).post<TicketsIssueMoveResponses, TicketsIssueMoveErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/issues/{key}/move',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Create a ticket project
+ *
+ * Atomically creates the upstream project and its immutable key/workflow settings.
+ */
+export const ticketsProjectCreate = <ThrowOnError extends boolean = true>(options: Options<TicketsProjectCreateData, ThrowOnError>): RequestResult<TicketsProjectCreateResponses, TicketsProjectCreateErrors, ThrowOnError> => (options.client ?? client).post<TicketsProjectCreateResponses, TicketsProjectCreateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Read project workflow
+ *
+ * Requires project read permission.
+ */
+export const ticketsProjectSettingsRead = <ThrowOnError extends boolean = true>(options: Options<TicketsProjectSettingsReadData, ThrowOnError>): RequestResult<TicketsProjectSettingsReadResponses, TicketsProjectSettingsReadErrors, ThrowOnError> => (options.client ?? client).get<TicketsProjectSettingsReadResponses, TicketsProjectSettingsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}',
+    ...options
+});
+
+/**
+ * Configure project workflow (partial)
+ *
+ * Partial update operation supporting both JSON Merge Patch & JSON Patch updates.
+ */
+export const patchTicketsProjectSettingsRead = <ThrowOnError extends boolean = true>(options: Options<PatchTicketsProjectSettingsReadData, ThrowOnError>): RequestResult<PatchTicketsProjectSettingsReadResponses, PatchTicketsProjectSettingsReadErrors, ThrowOnError> => (options.client ?? client).patch<PatchTicketsProjectSettingsReadResponses, PatchTicketsProjectSettingsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json-patch+json',
+        ...options.headers
+    }
+});
+
+/**
+ * Configure project workflow
+ *
+ * Requires project administration; rejects key changes and orphaning existing field values or states.
+ */
+export const ticketsProjectSettingsUpdate = <ThrowOnError extends boolean = true>(options: Options<TicketsProjectSettingsUpdateData, ThrowOnError>): RequestResult<TicketsProjectSettingsUpdateResponses, TicketsProjectSettingsUpdateErrors, ThrowOnError> => (options.client ?? client).put<TicketsProjectSettingsUpdateResponses, TicketsProjectSettingsUpdateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Read project Git settings
+ *
+ * Only project administrators; secrets are never returned.
+ */
+export const ticketsGitSettingsRead = <ThrowOnError extends boolean = true>(options: Options<TicketsGitSettingsReadData, ThrowOnError>): RequestResult<TicketsGitSettingsReadResponses, TicketsGitSettingsReadErrors, ThrowOnError> => (options.client ?? client).get<TicketsGitSettingsReadResponses, TicketsGitSettingsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}/git',
+    ...options
+});
+
+/**
+ * Configure a Git repository (partial)
+ *
+ * Partial update operation supporting both JSON Merge Patch & JSON Patch updates.
+ */
+export const patchTicketsGitSettingsRead = <ThrowOnError extends boolean = true>(options: Options<PatchTicketsGitSettingsReadData, ThrowOnError>): RequestResult<PatchTicketsGitSettingsReadResponses, PatchTicketsGitSettingsReadErrors, ThrowOnError> => (options.client ?? client).patch<PatchTicketsGitSettingsReadResponses, PatchTicketsGitSettingsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}/git',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json-patch+json',
+        ...options.headers
+    }
+});
+
+/**
+ * Configure a Git repository
+ *
+ * Encrypts credentials and validates exact repository and opt-in transition rules. Requires project administration.
+ */
+export const ticketsGitSettingsUpdate = <ThrowOnError extends boolean = true>(options: Options<TicketsGitSettingsUpdateData, ThrowOnError>): RequestResult<TicketsGitSettingsUpdateResponses, TicketsGitSettingsUpdateErrors, ThrowOnError> => (options.client ?? client).put<TicketsGitSettingsUpdateResponses, TicketsGitSettingsUpdateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}/git',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Resync recent Git history
+ *
+ * Imports up to 50 commits from the configured trusted origin; never executes transitions for historical records.
+ */
+export const ticketsGitResync = <ThrowOnError extends boolean = true>(options: Options<TicketsGitResyncData, ThrowOnError>): RequestResult<TicketsGitResyncResponses, TicketsGitResyncErrors, ThrowOnError> => (options.client ?? client).post<TicketsGitResyncResponses, TicketsGitResyncErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}/git/resync',
+    ...options
+});
+
+/**
+ * Receive a signed Gitea webhook
+ *
+ * Requires a project-scoped API credential plus HMAC-SHA256 of the exact body and a delivery ID. Duplicate deliveries are idempotent.
+ */
+export const ticketsGitWebhook = <ThrowOnError extends boolean = true>(options: Options<TicketsGitWebhookData, ThrowOnError>): RequestResult<TicketsGitWebhookResponses, TicketsGitWebhookErrors, ThrowOnError> => (options.client ?? client).post<TicketsGitWebhookResponses, TicketsGitWebhookErrors, ThrowOnError>({
+    bodySerializer: null,
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/projects/{id}/git/webhook',
+    ...options,
+    headers: {
+        'Content-Type': 'application/octet-stream',
+        ...options.headers
+    }
+});
+
+/**
+ * Search and filter issues
+ *
+ * Combines AND/OR predicates before pagination. Totals never include hidden projects.
+ */
+export const ticketsQuery = <ThrowOnError extends boolean = true>(options: Options<TicketsQueryData, ThrowOnError>): RequestResult<TicketsQueryResponses, TicketsQueryErrors, ThrowOnError> => (options.client ?? client).post<TicketsQueryResponses, TicketsQueryErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/query',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Calculate a report
+ *
+ * Uses the same permission-scoped filter engine as issues and dashboards; historical charts replay audit events.
+ */
+export const ticketsReport = <ThrowOnError extends boolean = true>(options: Options<TicketsReportData, ThrowOnError>): RequestResult<TicketsReportResponses, TicketsReportErrors, ThrowOnError> => (options.client ?? client).post<TicketsReportResponses, TicketsReportErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/reports/{kind}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * List ticket sprints
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsSprintsList = <ThrowOnError extends boolean = true>(options?: Options<TicketsSprintsListData, ThrowOnError>): RequestResult<TicketsSprintsListResponses, TicketsSprintsListErrors, ThrowOnError> => (options?.client ?? client).get<TicketsSprintsListResponses, TicketsSprintsListErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints',
+    ...options
+});
+
+/**
+ * Create ticket sprints
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsSprintsCreate = <ThrowOnError extends boolean = true>(options: Options<TicketsSprintsCreateData, ThrowOnError>): RequestResult<TicketsSprintsCreateResponses, TicketsSprintsCreateErrors, ThrowOnError> => (options.client ?? client).post<TicketsSprintsCreateResponses, TicketsSprintsCreateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Delete ticket sprints
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsSprintsDelete = <ThrowOnError extends boolean = true>(options: Options<TicketsSprintsDeleteData, ThrowOnError>): RequestResult<TicketsSprintsDeleteResponses, TicketsSprintsDeleteErrors, ThrowOnError> => (options.client ?? client).delete<TicketsSprintsDeleteResponses, TicketsSprintsDeleteErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints/{id}',
+    ...options
+});
+
+/**
+ * Read ticket sprints
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsSprintsRead = <ThrowOnError extends boolean = true>(options: Options<TicketsSprintsReadData, ThrowOnError>): RequestResult<TicketsSprintsReadResponses, TicketsSprintsReadErrors, ThrowOnError> => (options.client ?? client).get<TicketsSprintsReadResponses, TicketsSprintsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints/{id}',
+    ...options
+});
+
+/**
+ * Update ticket sprints (partial)
+ *
+ * Partial update operation supporting both JSON Merge Patch & JSON Patch updates.
+ */
+export const patchTicketsSprintsRead = <ThrowOnError extends boolean = true>(options: Options<PatchTicketsSprintsReadData, ThrowOnError>): RequestResult<PatchTicketsSprintsReadResponses, PatchTicketsSprintsReadErrors, ThrowOnError> => (options.client ?? client).patch<PatchTicketsSprintsReadResponses, PatchTicketsSprintsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json-patch+json',
+        ...options.headers
+    }
+});
+
+/**
+ * Update ticket sprints
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsSprintsUpdate = <ThrowOnError extends boolean = true>(options: Options<TicketsSprintsUpdateData, ThrowOnError>): RequestResult<TicketsSprintsUpdateResponses, TicketsSprintsUpdateErrors, ThrowOnError> => (options.client ?? client).put<TicketsSprintsUpdateResponses, TicketsSprintsUpdateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Close a sprint
+ *
+ * Records completed scope and sends unfinished work to backlog or a chosen next sprint.
+ */
+export const ticketsSprintClose = <ThrowOnError extends boolean = true>(options: Options<TicketsSprintCloseData, ThrowOnError>): RequestResult<TicketsSprintCloseResponses, TicketsSprintCloseErrors, ThrowOnError> => (options.client ?? client).post<TicketsSprintCloseResponses, TicketsSprintCloseErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints/{id}/close',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Start a sprint
+ *
+ * Snapshots starting scope; only one sprint may be active in a project.
+ */
+export const ticketsSprintStart = <ThrowOnError extends boolean = true>(options: Options<TicketsSprintStartData, ThrowOnError>): RequestResult<TicketsSprintStartResponses, TicketsSprintStartErrors, ThrowOnError> => (options.client ?? client).post<TicketsSprintStartResponses, TicketsSprintStartErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/sprints/{id}/start',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * List ticket views
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsViewsList = <ThrowOnError extends boolean = true>(options?: Options<TicketsViewsListData, ThrowOnError>): RequestResult<TicketsViewsListResponses, TicketsViewsListErrors, ThrowOnError> => (options?.client ?? client).get<TicketsViewsListResponses, TicketsViewsListErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/views',
+    ...options
+});
+
+/**
+ * Create ticket views
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsViewsCreate = <ThrowOnError extends boolean = true>(options: Options<TicketsViewsCreateData, ThrowOnError>): RequestResult<TicketsViewsCreateResponses, TicketsViewsCreateErrors, ThrowOnError> => (options.client ?? client).post<TicketsViewsCreateResponses, TicketsViewsCreateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/views',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * Delete ticket views
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsViewsDelete = <ThrowOnError extends boolean = true>(options: Options<TicketsViewsDeleteData, ThrowOnError>): RequestResult<TicketsViewsDeleteResponses, TicketsViewsDeleteErrors, ThrowOnError> => (options.client ?? client).delete<TicketsViewsDeleteResponses, TicketsViewsDeleteErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/views/{id}',
+    ...options
+});
+
+/**
+ * Read ticket views
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsViewsRead = <ThrowOnError extends boolean = true>(options: Options<TicketsViewsReadData, ThrowOnError>): RequestResult<TicketsViewsReadResponses, TicketsViewsReadErrors, ThrowOnError> => (options.client ?? client).get<TicketsViewsReadResponses, TicketsViewsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/views/{id}',
+    ...options
+});
+
+/**
+ * Update ticket views (partial)
+ *
+ * Partial update operation supporting both JSON Merge Patch & JSON Patch updates.
+ */
+export const patchTicketsViewsRead = <ThrowOnError extends boolean = true>(options: Options<PatchTicketsViewsReadData, ThrowOnError>): RequestResult<PatchTicketsViewsReadResponses, PatchTicketsViewsReadErrors, ThrowOnError> => (options.client ?? client).patch<PatchTicketsViewsReadResponses, PatchTicketsViewsReadErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/views/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json-patch+json',
+        ...options.headers
+    }
+});
+
+/**
+ * Update ticket views
+ *
+ * Project permissions are enforced; dashboard and saved-view ownership controls writes. Deletes archive issues and preserve their identifiers.
+ */
+export const ticketsViewsUpdate = <ThrowOnError extends boolean = true>(options: Options<TicketsViewsUpdateData, ThrowOnError>): RequestResult<TicketsViewsUpdateResponses, TicketsViewsUpdateErrors, ThrowOnError> => (options.client ?? client).put<TicketsViewsUpdateResponses, TicketsViewsUpdateErrors, ThrowOnError>({
+    security: [{
+            key: 'JWTKeyAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }, {
+            key: 'APITokenAuth',
+            scheme: 'bearer',
+            type: 'http'
+        }],
+    url: '/tickets/views/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
 });
 
 /**

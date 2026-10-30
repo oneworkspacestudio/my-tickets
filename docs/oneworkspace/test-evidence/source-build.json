@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "commit": "5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0",
+  "file": "Vikunja-2.7.1-baseline.exe",
+  "bytes": 86813696,
+  "sha256": "537e158c9b555878eeca190cbbda8f954b5886d33d26b0f5171cd26b96937772",
+  "go": "1.27.3",
+  "node": "26.8.2",
+  "pnpm": "11.27.0",
+  "zig": "0.15.2",
+  "sourceModified": false,
+  "frontendFiles": 361,
+  "cleanVM": "UNVERIFIED",
+  "productionMyTicketsFeatures": false
+}

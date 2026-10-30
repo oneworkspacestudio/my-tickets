@@ -19,6 +19,6 @@
 package utils
 
 // Windows doesn't provide the umask syscall, so there is a no-op stub.
-func Umask(mask int) int {
+func Umask(_ int) int {
 	return 077
 }

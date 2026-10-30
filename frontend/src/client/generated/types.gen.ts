@@ -1162,6 +1162,1086 @@ export type Overview = {
     readonly users?: number;
 };
 
+export type OwActivity = {
+    /**
+     * Recorded action.
+     */
+    action?: string;
+    /**
+     * Authenticated actor; never read from ticket text.
+     */
+    readonly actor_id?: number;
+    /**
+     * Server time.
+     */
+    readonly at?: string;
+    /**
+     * Human-readable change summary.
+     */
+    detail?: string;
+    /**
+     * Activity sequence.
+     */
+    readonly id?: number;
+    /**
+     * Estimate at the time of this event.
+     */
+    points?: number;
+    /**
+     * Sprint before the change.
+     */
+    previous_sprint_id?: number;
+    /**
+     * Previous issue state, when recording an issue change.
+     */
+    previous_state?: string;
+    /**
+     * Permission scope.
+     */
+    project_id?: number;
+    /**
+     * Sprint after the change.
+     */
+    sprint_id?: number;
+    /**
+     * State after the change.
+     */
+    state?: string;
+    /**
+     * Related task, or zero for project activity.
+     */
+    task_id?: number;
+};
+
+export type OwAttachment = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Upload time.
+     */
+    readonly created?: string;
+    /**
+     * Recoverable deletion; bytes are retained for restore.
+     */
+    deleted?: boolean;
+    /**
+     * Opaque attachment ID.
+     */
+    readonly id?: string;
+    /**
+     * Original basename, never used as an untrusted path.
+     */
+    name?: string;
+    /**
+     * Verified content digest.
+     */
+    readonly sha256?: string;
+    /**
+     * Byte length.
+     */
+    readonly size?: number;
+    /**
+     * Authorized owning issue.
+     */
+    readonly task_id?: number;
+    /**
+     * Authenticated uploader.
+     */
+    readonly uploader_id?: number;
+};
+
+export type OwBulkChange = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Atomic bulk operation; all issues must authorize successfully.
+     */
+    action?: 'state' | 'priority' | 'sprint' | 'archive' | 'duplicate';
+    /**
+     * At most 100 issue keys.
+     */
+    keys?: Array<string> | null;
+    /**
+     * New state, priority or sprint ID.
+     */
+    value?: string;
+};
+
+export type OwCatalog = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Only the requesting user's accessible projects.
+     */
+    projects?: Array<OwProjectInfo> | null;
+    /**
+     * Available dashboard templates.
+     */
+    templates?: Array<string> | null;
+    /**
+     * The current upstream account; authorization is derived from this server-side identity.
+     */
+    user?: User;
+    /**
+     * Supported dashboard calculations.
+     */
+    widget_kinds?: Array<string> | null;
+};
+
+export type OwDashboard = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Dashboard filters.
+     */
+    filter?: OwFilter;
+    /**
+     * Dashboard ID.
+     */
+    readonly id?: number;
+    /**
+     * Dashboard title.
+     */
+    name?: string;
+    /**
+     * Authenticated owner.
+     */
+    readonly owner_id?: number;
+    /**
+     * Project dashboard scope, or zero.
+     */
+    project_id?: number;
+    /**
+     * Sharing scope; data remains permission-filtered for every viewer.
+     */
+    scope?: 'private' | 'project' | 'global';
+    /**
+     * Additional user IDs permitted to view a private dashboard.
+     */
+    shares?: Array<number> | null;
+    /**
+     * Last modification.
+     */
+    readonly updated?: string;
+    /**
+     * Persistent shared widget definitions and layout.
+     */
+    widgets?: Array<OwWidget> | null;
+};
+
+export type OwDashboardData = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Dashboard definition.
+     */
+    dashboard?: OwDashboard;
+    /**
+     * Server calculation time.
+     */
+    generated?: string;
+    /**
+     * Server reporting timezone.
+     */
+    timezone?: string;
+    /**
+     * Metrics computed with the current viewer's permissions.
+     */
+    widgets?: Array<OwWidgetData> | null;
+};
+
+export type OwDashboardReadBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Dashboard filters.
+     */
+    filter?: OwFilter;
+    /**
+     * Dashboard ID.
+     */
+    readonly id?: number;
+    /**
+     * Current caller permission.
+     */
+    readonly max_permission?: number;
+    /**
+     * Dashboard title.
+     */
+    name?: string;
+    /**
+     * Authenticated owner.
+     */
+    readonly owner_id?: number;
+    /**
+     * Project dashboard scope, or zero.
+     */
+    project_id?: number;
+    /**
+     * Sharing scope; data remains permission-filtered for every viewer.
+     */
+    scope?: 'private' | 'project' | 'global';
+    /**
+     * Additional user IDs permitted to view a private dashboard.
+     */
+    shares?: Array<number> | null;
+    /**
+     * Last modification.
+     */
+    readonly updated?: string;
+    /**
+     * Persistent shared widget definitions and layout.
+     */
+    widgets?: Array<OwWidget> | null;
+};
+
+export type OwField = {
+    /**
+     * Stable custom field identifier.
+     */
+    id?: string;
+    /**
+     * Display label.
+     */
+    name?: string;
+    /**
+     * Allowed values for selection fields.
+     */
+    options?: Array<string> | null;
+    /**
+     * Whether every issue must supply the field.
+     */
+    required?: boolean;
+    /**
+     * Validation type.
+     */
+    type?: 'text' | 'number' | 'date' | 'boolean' | 'select' | 'multi-select';
+};
+
+export type OwFilter = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Include archived issues.
+     */
+    archived?: boolean;
+    /**
+     * Descending sort order.
+     */
+    descending?: boolean;
+    /**
+     * Zero means any epic.
+     */
+    epic_id?: number;
+    /**
+     * Rule combination, default and.
+     */
+    match?: '' | 'and' | 'or';
+    /**
+     * Zero means all accessible projects.
+     */
+    project_id?: number;
+    /**
+     * Case-insensitive key, summary and description search.
+     */
+    q?: string;
+    /**
+     * Compound filter conditions.
+     */
+    rules?: Array<OwRule> | null;
+    /**
+     * key, summary, priority, due_date, created, updated or position.
+     */
+    sort?: string;
+    /**
+     * Zero means any sprint.
+     */
+    sprint_id?: number;
+};
+
+export type OwGitLink = {
+    /**
+     * First association time.
+     */
+    readonly at?: string;
+    /**
+     * External author name.
+     */
+    author?: string;
+    /**
+     * Link ID.
+     */
+    readonly id?: number;
+    /**
+     * Commit or pull request.
+     */
+    kind?: string;
+    /**
+     * External event timestamp when supplied.
+     */
+    occurred?: string;
+    /**
+     * Bound repository name.
+     */
+    repository?: string;
+    /**
+     * Commit hash or branch reference.
+     */
+    revision?: string;
+    /**
+     * External pull request state.
+     */
+    state?: string;
+    /**
+     * Related issue task.
+     */
+    task_id?: number;
+    /**
+     * External title; always treated as untrusted text.
+     */
+    title?: string;
+    /**
+     * Validated link on the configured Git server.
+     */
+    url?: string;
+};
+
+export type OwGitRule = {
+    /**
+     * push or pull_request.closed.
+     */
+    event?: string;
+    /**
+     * Validated destination workflow state.
+     */
+    state?: string;
+};
+
+export type OwGitSettings = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Whether credentials and webhook secret exist.
+     */
+    readonly configured?: boolean;
+    /**
+     * Bound ticket project.
+     */
+    project_id?: number;
+    /**
+     * Exact repository owner/name.
+     */
+    repository?: string;
+    /**
+     * Explicit opt-in workflow automation, disabled when empty.
+     */
+    rules?: Array<OwGitRule> | null;
+    /**
+     * Explicit trusted Gitea server base URL.
+     */
+    url?: string;
+};
+
+export type OwIssue = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Version where the problem occurs.
+     */
+    affected_version?: string;
+    /**
+     * Archived issues are excluded from ordinary lists.
+     */
+    archived?: boolean;
+    /**
+     * Assignees with access to the project.
+     */
+    assignee_ids?: Array<number> | null;
+    /**
+     * Entry into a completed workflow category; cleared when reopened.
+     */
+    readonly completed_at?: string;
+    /**
+     * Component name.
+     */
+    component?: string;
+    /**
+     * Issue creation time.
+     */
+    readonly created?: string;
+    /**
+     * Values validated against the project's field definitions.
+     */
+    custom?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Rich-text upstream description.
+     */
+    description?: string;
+    /**
+     * Optional due date.
+     */
+    due_date?: string;
+    /**
+     * Environment and reproduction context.
+     */
+    environment?: string;
+    /**
+     * Epic task ID in the same project, or zero.
+     */
+    epic_id?: number;
+    /**
+     * Estimated hours.
+     */
+    estimate?: number;
+    /**
+     * Optional last-seen revision; stale edits return 409 without changing the issue.
+     */
+    expected_revision?: number;
+    /**
+     * Optional last-seen updated timestamp; a mismatch rejects stale edits with 409.
+     */
+    expected_updated?: string;
+    /**
+     * Target release or milestone.
+     */
+    fix_version?: string;
+    /**
+     * Permanent human-readable issue identifier.
+     */
+    readonly key?: string;
+    /**
+     * Story points.
+     */
+    points?: number;
+    /**
+     * Backlog ordering; editable without drag-and-drop.
+     */
+    position?: number;
+    /**
+     * Priority, zero to five.
+     */
+    priority?: number;
+    /**
+     * Owning project; use the authorized move action to change it.
+     */
+    project_id?: number;
+    /**
+     * Authenticated creator.
+     */
+    readonly reporter_id?: number;
+    /**
+     * Monotonic issue revision for conditional edits.
+     */
+    readonly revision?: number;
+    /**
+     * Impact or severity classification.
+     */
+    severity?: string;
+    /**
+     * Sprint in the same project, or zero for backlog.
+     */
+    sprint_id?: number;
+    /**
+     * First entry into active work.
+     */
+    readonly started_at?: string;
+    /**
+     * Workflow state identifier.
+     */
+    state?: string;
+    /**
+     * Upstream task title.
+     */
+    summary?: string;
+    /**
+     * Expanded upstream task, including labels, relations and attachments.
+     */
+    readonly task?: Task;
+    /**
+     * Unique upstream task mapping; never client-assigned.
+     */
+    readonly task_id?: number;
+    /**
+     * Project-configured issue type.
+     */
+    type?: string;
+    /**
+     * Last issue change.
+     */
+    readonly updated?: string;
+};
+
+export type OwIssueReadBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Version where the problem occurs.
+     */
+    affected_version?: string;
+    /**
+     * Archived issues are excluded from ordinary lists.
+     */
+    archived?: boolean;
+    /**
+     * Assignees with access to the project.
+     */
+    assignee_ids?: Array<number> | null;
+    /**
+     * Entry into a completed workflow category; cleared when reopened.
+     */
+    readonly completed_at?: string;
+    /**
+     * Component name.
+     */
+    component?: string;
+    /**
+     * Issue creation time.
+     */
+    readonly created?: string;
+    /**
+     * Values validated against the project's field definitions.
+     */
+    custom?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Rich-text upstream description.
+     */
+    description?: string;
+    /**
+     * Optional due date.
+     */
+    due_date?: string;
+    /**
+     * Environment and reproduction context.
+     */
+    environment?: string;
+    /**
+     * Epic task ID in the same project, or zero.
+     */
+    epic_id?: number;
+    /**
+     * Estimated hours.
+     */
+    estimate?: number;
+    /**
+     * Optional last-seen revision; stale edits return 409 without changing the issue.
+     */
+    expected_revision?: number;
+    /**
+     * Optional last-seen updated timestamp; a mismatch rejects stale edits with 409.
+     */
+    expected_updated?: string;
+    /**
+     * Target release or milestone.
+     */
+    fix_version?: string;
+    /**
+     * Permanent human-readable issue identifier.
+     */
+    readonly key?: string;
+    /**
+     * Current caller permission.
+     */
+    readonly max_permission?: number;
+    /**
+     * Story points.
+     */
+    points?: number;
+    /**
+     * Backlog ordering; editable without drag-and-drop.
+     */
+    position?: number;
+    /**
+     * Priority, zero to five.
+     */
+    priority?: number;
+    /**
+     * Owning project; use the authorized move action to change it.
+     */
+    project_id?: number;
+    /**
+     * Authenticated creator.
+     */
+    readonly reporter_id?: number;
+    /**
+     * Monotonic issue revision for conditional edits.
+     */
+    readonly revision?: number;
+    /**
+     * Impact or severity classification.
+     */
+    severity?: string;
+    /**
+     * Sprint in the same project, or zero for backlog.
+     */
+    sprint_id?: number;
+    /**
+     * First entry into active work.
+     */
+    readonly started_at?: string;
+    /**
+     * Workflow state identifier.
+     */
+    state?: string;
+    /**
+     * Upstream task title.
+     */
+    summary?: string;
+    /**
+     * Expanded upstream task, including labels, relations and attachments.
+     */
+    readonly task?: Task;
+    /**
+     * Unique upstream task mapping; never client-assigned.
+     */
+    readonly task_id?: number;
+    /**
+     * Project-configured issue type.
+     */
+    type?: string;
+    /**
+     * Last issue change.
+     */
+    readonly updated?: string;
+};
+
+export type OwPoint = {
+    /**
+     * Accessible label for this observation.
+     */
+    label?: string;
+    /**
+     * Second series value, where applicable.
+     */
+    secondary?: number;
+    /**
+     * Computed value.
+     */
+    value?: number;
+};
+
+export type OwProjectInfo = {
+    /**
+     * Current project permission: 0 viewer, 1 contributor, 2 administrator.
+     */
+    permission?: number;
+    /**
+     * Accessible upstream project.
+     */
+    project?: Project;
+    /**
+     * My Tickets configuration; null for an unconfigured legacy project.
+     */
+    settings?: OwProjectSettings;
+};
+
+export type OwProjectSettings = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Project-scoped typed custom fields.
+     */
+    fields?: Array<OwField> | null;
+    /**
+     * Immutable uppercase project key.
+     */
+    key?: string;
+    /**
+     * Upstream project ID.
+     */
+    project_id?: number;
+    /**
+     * Ordered workflow columns.
+     */
+    states?: Array<OwState> | null;
+    /**
+     * Authorized workflow transitions.
+     */
+    transitions?: Array<OwTransition> | null;
+    /**
+     * Allowed issue types.
+     */
+    types?: Array<string> | null;
+    /**
+     * Last settings change.
+     */
+    readonly updated?: string;
+};
+
+export type OwProjectSettingsBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Project-scoped typed custom fields.
+     */
+    fields?: Array<OwField> | null;
+    /**
+     * Immutable uppercase project key.
+     */
+    key?: string;
+    /**
+     * Current project permission.
+     */
+    readonly max_permission?: number;
+    /**
+     * Upstream project ID.
+     */
+    project_id?: number;
+    /**
+     * Ordered workflow columns.
+     */
+    states?: Array<OwState> | null;
+    /**
+     * Authorized workflow transitions.
+     */
+    transitions?: Array<OwTransition> | null;
+    /**
+     * Allowed issue types.
+     */
+    types?: Array<string> | null;
+    /**
+     * Last settings change.
+     */
+    readonly updated?: string;
+};
+
+export type OwRule = {
+    /**
+     * type, state, priority, assignee, reporter, label, due_date, created, updated or custom.fieldID.
+     */
+    field?: string;
+    /**
+     * Typed comparison.
+     */
+    operator?: 'eq' | 'ne' | 'contains' | 'before' | 'after' | 'empty';
+    /**
+     * Comparison value; dates use YYYY-MM-DD or RFC3339.
+     */
+    value?: string;
+};
+
+export type OwSavedView = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Saved compound filter.
+     */
+    filter?: OwFilter;
+    /**
+     * Saved view ID.
+     */
+    readonly id?: number;
+    /**
+     * View name.
+     */
+    name?: string;
+    /**
+     * Owner.
+     */
+    readonly owner_id?: number;
+    /**
+     * Shared definition; results are always scoped to each viewer.
+     */
+    shared?: boolean;
+};
+
+export type OwSavedViewReadBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Saved compound filter.
+     */
+    filter?: OwFilter;
+    /**
+     * Saved view ID.
+     */
+    readonly id?: number;
+    /**
+     * Current caller permission.
+     */
+    readonly max_permission?: number;
+    /**
+     * View name.
+     */
+    name?: string;
+    /**
+     * Owner.
+     */
+    readonly owner_id?: number;
+    /**
+     * Shared definition; results are always scoped to each viewer.
+     */
+    shared?: boolean;
+};
+
+export type OwSprint = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Actual completion.
+     */
+    readonly closed?: string;
+    /**
+     * Immutable starting scope, as task IDs.
+     */
+    readonly committed?: Array<number> | null;
+    /**
+     * Completed scope at close.
+     */
+    readonly completed?: Array<number> | null;
+    /**
+     * Planned end.
+     */
+    end?: string;
+    /**
+     * Sprint goal.
+     */
+    goal?: string;
+    /**
+     * Sprint ID.
+     */
+    readonly id?: number;
+    /**
+     * Sprint name.
+     */
+    name?: string;
+    /**
+     * Owning project.
+     */
+    project_id?: number;
+    /**
+     * Planned start.
+     */
+    start?: string;
+    /**
+     * Actual start.
+     */
+    readonly started?: string;
+    /**
+     * planned, active or closed; changed through lifecycle actions.
+     */
+    readonly state?: string;
+};
+
+export type OwSprintLifecycleInputBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Zero returns unfinished issues to backlog.
+     */
+    next_sprint_id?: number;
+};
+
+export type OwSprintReadBody = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Actual completion.
+     */
+    readonly closed?: string;
+    /**
+     * Immutable starting scope, as task IDs.
+     */
+    readonly committed?: Array<number> | null;
+    /**
+     * Completed scope at close.
+     */
+    readonly completed?: Array<number> | null;
+    /**
+     * Planned end.
+     */
+    end?: string;
+    /**
+     * Sprint goal.
+     */
+    goal?: string;
+    /**
+     * Sprint ID.
+     */
+    readonly id?: number;
+    /**
+     * Current caller permission.
+     */
+    readonly max_permission?: number;
+    /**
+     * Sprint name.
+     */
+    name?: string;
+    /**
+     * Owning project.
+     */
+    project_id?: number;
+    /**
+     * Planned start.
+     */
+    start?: string;
+    /**
+     * Actual start.
+     */
+    readonly started?: string;
+    /**
+     * planned, active or closed; changed through lifecycle actions.
+     */
+    readonly state?: string;
+};
+
+export type OwState = {
+    /**
+     * Defines completion calculations independently of the display name.
+     */
+    category?: 'open' | 'done' | 'cancelled';
+    /**
+     * Stable workflow state identifier.
+     */
+    id?: string;
+    /**
+     * Optional work-in-progress limit; zero is unlimited.
+     */
+    limit?: number;
+    /**
+     * Display name.
+     */
+    name?: string;
+    /**
+     * An open state that starts cycle-time tracking when entered.
+     */
+    working?: boolean;
+};
+
+export type OwTransition = {
+    /**
+     * Requires project administrator permission.
+     */
+    admin_only?: boolean;
+    /**
+     * Source state, or * for any source.
+     */
+    from?: string;
+    /**
+     * Field identifiers required before transition.
+     */
+    required?: Array<string> | null;
+    /**
+     * Destination state identifier.
+     */
+    to?: string;
+};
+
+export type OwWidget = {
+    /**
+     * Presentation choice; empty uses the calculation's default.
+     */
+    chart?: '' | 'metric' | 'line' | 'bar' | 'donut' | 'table';
+    /**
+     * Optional widget-level filter overrides.
+     */
+    filter?: OwFilter;
+    /**
+     * Height in grid rows.
+     */
+    h?: number;
+    /**
+     * Stable widget ID.
+     */
+    id?: string;
+    /**
+     * Metric, chart, list or activity widget kind.
+     */
+    kind?: string;
+    /**
+     * Widget heading.
+     */
+    title?: string;
+    /**
+     * Width in grid columns.
+     */
+    w?: number;
+    /**
+     * Grid column, zero-based.
+     */
+    x?: number;
+    /**
+     * Grid row, zero-based.
+     */
+    y?: number;
+};
+
+export type OwWidgetData = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Authorized activity feed.
+     */
+    activities?: Array<OwActivity> | null;
+    /**
+     * Widget ID.
+     */
+    id?: string;
+    /**
+     * Authorized recent issue rows.
+     */
+    issues?: Array<OwIssue> | null;
+    /**
+     * Calculation kind.
+     */
+    kind?: string;
+    /**
+     * Computed chart observations, including zero-value days.
+     */
+    points?: Array<OwPoint> | null;
+    /**
+     * Widget title.
+     */
+    title?: string;
+    /**
+     * Denominator for progress metrics.
+     */
+    total?: number;
+    /**
+     * Primary computed metric.
+     */
+    value?: number;
+};
+
 export type PaginatedApiToken = {
     /**
      * A URL to the JSON Schema for this object.
@@ -1264,6 +2344,54 @@ export type PaginatedLinkSharing = {
      */
     readonly $schema?: string;
     items?: Array<LinkSharing> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwDashboard = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    items?: Array<OwDashboard> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwIssue = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    items?: Array<OwIssue> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwSavedView = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    items?: Array<OwSavedView> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwSprint = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    items?: Array<OwSprint> | null;
     page?: number;
     per_page?: number;
     total?: number;
@@ -2813,6 +3941,81 @@ export type TeamWithPermission = {
     readonly updated?: string;
 };
 
+export type TicketsAttachmentsStateRequest = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * False restores the attachment.
+     */
+    deleted?: boolean;
+};
+
+export type TicketsDashboardLayoutRequest = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Only layout dimensions and positions are changed.
+     */
+    widgets?: Array<OwWidget> | null;
+};
+
+export type TicketsDashboardTemplateRequest = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Optional project scope.
+     */
+    project_id?: number;
+};
+
+export type TicketsIssueMoveRequest = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    project_id?: number;
+};
+
+export type TicketsProjectCreateRequest = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Unique immutable uppercase key.
+     */
+    key?: string;
+    /**
+     * Project title.
+     */
+    title?: string;
+};
+
+export type TicketsQueryRequest = {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    readonly $schema?: string;
+    /**
+     * Compound authorized query.
+     */
+    filter?: OwFilter;
+    /**
+     * One-based page.
+     */
+    page?: number;
+    /**
+     * Page size, at most 200.
+     */
+    per_page?: number;
+};
+
 export type TimeEntry = {
     /**
      * A URL to the JSON Schema for this object.
@@ -4036,6 +5239,680 @@ export type OverviewWritable = {
     [key: string]: never;
 };
 
+export type OwActivityWritable = {
+    /**
+     * Recorded action.
+     */
+    action?: string;
+    /**
+     * Human-readable change summary.
+     */
+    detail?: string;
+    /**
+     * Estimate at the time of this event.
+     */
+    points?: number;
+    /**
+     * Sprint before the change.
+     */
+    previous_sprint_id?: number;
+    /**
+     * Previous issue state, when recording an issue change.
+     */
+    previous_state?: string;
+    /**
+     * Permission scope.
+     */
+    project_id?: number;
+    /**
+     * Sprint after the change.
+     */
+    sprint_id?: number;
+    /**
+     * State after the change.
+     */
+    state?: string;
+    /**
+     * Related task, or zero for project activity.
+     */
+    task_id?: number;
+};
+
+export type OwAttachmentWritable = {
+    /**
+     * Recoverable deletion; bytes are retained for restore.
+     */
+    deleted?: boolean;
+    /**
+     * Original basename, never used as an untrusted path.
+     */
+    name?: string;
+};
+
+export type OwBulkChangeWritable = {
+    /**
+     * Atomic bulk operation; all issues must authorize successfully.
+     */
+    action?: 'state' | 'priority' | 'sprint' | 'archive' | 'duplicate';
+    /**
+     * At most 100 issue keys.
+     */
+    keys?: Array<string> | null;
+    /**
+     * New state, priority or sprint ID.
+     */
+    value?: string;
+};
+
+export type OwCatalogWritable = {
+    /**
+     * Only the requesting user's accessible projects.
+     */
+    projects?: Array<OwProjectInfoWritable> | null;
+    /**
+     * Available dashboard templates.
+     */
+    templates?: Array<string> | null;
+    /**
+     * The current upstream account; authorization is derived from this server-side identity.
+     */
+    user?: UserWritable;
+    /**
+     * Supported dashboard calculations.
+     */
+    widget_kinds?: Array<string> | null;
+};
+
+export type OwDashboardWritable = {
+    /**
+     * Dashboard filters.
+     */
+    filter?: OwFilterWritable;
+    /**
+     * Dashboard title.
+     */
+    name?: string;
+    /**
+     * Project dashboard scope, or zero.
+     */
+    project_id?: number;
+    /**
+     * Sharing scope; data remains permission-filtered for every viewer.
+     */
+    scope?: 'private' | 'project' | 'global';
+    /**
+     * Additional user IDs permitted to view a private dashboard.
+     */
+    shares?: Array<number> | null;
+    /**
+     * Persistent shared widget definitions and layout.
+     */
+    widgets?: Array<OwWidgetWritable> | null;
+};
+
+export type OwDashboardDataWritable = {
+    /**
+     * Dashboard definition.
+     */
+    dashboard?: OwDashboardWritable;
+    /**
+     * Server calculation time.
+     */
+    generated?: string;
+    /**
+     * Server reporting timezone.
+     */
+    timezone?: string;
+    /**
+     * Metrics computed with the current viewer's permissions.
+     */
+    widgets?: Array<OwWidgetDataWritable> | null;
+};
+
+export type OwDashboardReadBodyWritable = {
+    /**
+     * Dashboard filters.
+     */
+    filter?: OwFilterWritable;
+    /**
+     * Dashboard title.
+     */
+    name?: string;
+    /**
+     * Project dashboard scope, or zero.
+     */
+    project_id?: number;
+    /**
+     * Sharing scope; data remains permission-filtered for every viewer.
+     */
+    scope?: 'private' | 'project' | 'global';
+    /**
+     * Additional user IDs permitted to view a private dashboard.
+     */
+    shares?: Array<number> | null;
+    /**
+     * Persistent shared widget definitions and layout.
+     */
+    widgets?: Array<OwWidgetWritable> | null;
+};
+
+export type OwFilterWritable = {
+    /**
+     * Include archived issues.
+     */
+    archived?: boolean;
+    /**
+     * Descending sort order.
+     */
+    descending?: boolean;
+    /**
+     * Zero means any epic.
+     */
+    epic_id?: number;
+    /**
+     * Rule combination, default and.
+     */
+    match?: '' | 'and' | 'or';
+    /**
+     * Zero means all accessible projects.
+     */
+    project_id?: number;
+    /**
+     * Case-insensitive key, summary and description search.
+     */
+    q?: string;
+    /**
+     * Compound filter conditions.
+     */
+    rules?: Array<OwRule> | null;
+    /**
+     * key, summary, priority, due_date, created, updated or position.
+     */
+    sort?: string;
+    /**
+     * Zero means any sprint.
+     */
+    sprint_id?: number;
+};
+
+export type OwGitLinkWritable = {
+    /**
+     * External author name.
+     */
+    author?: string;
+    /**
+     * Commit or pull request.
+     */
+    kind?: string;
+    /**
+     * External event timestamp when supplied.
+     */
+    occurred?: string;
+    /**
+     * Bound repository name.
+     */
+    repository?: string;
+    /**
+     * Commit hash or branch reference.
+     */
+    revision?: string;
+    /**
+     * External pull request state.
+     */
+    state?: string;
+    /**
+     * Related issue task.
+     */
+    task_id?: number;
+    /**
+     * External title; always treated as untrusted text.
+     */
+    title?: string;
+    /**
+     * Validated link on the configured Git server.
+     */
+    url?: string;
+};
+
+export type OwGitSettingsWritable = {
+    /**
+     * Bound ticket project.
+     */
+    project_id?: number;
+    /**
+     * Exact repository owner/name.
+     */
+    repository?: string;
+    /**
+     * Explicit opt-in workflow automation, disabled when empty.
+     */
+    rules?: Array<OwGitRule> | null;
+    /**
+     * Webhook HMAC secret; empty preserves the current secret.
+     */
+    secret?: string;
+    /**
+     * Service token; empty preserves the current encrypted token.
+     */
+    token?: string;
+    /**
+     * Explicit trusted Gitea server base URL.
+     */
+    url?: string;
+};
+
+export type OwIssueWritable = {
+    /**
+     * Version where the problem occurs.
+     */
+    affected_version?: string;
+    /**
+     * Archived issues are excluded from ordinary lists.
+     */
+    archived?: boolean;
+    /**
+     * Assignees with access to the project.
+     */
+    assignee_ids?: Array<number> | null;
+    /**
+     * Component name.
+     */
+    component?: string;
+    /**
+     * Values validated against the project's field definitions.
+     */
+    custom?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Rich-text upstream description.
+     */
+    description?: string;
+    /**
+     * Optional due date.
+     */
+    due_date?: string;
+    /**
+     * Environment and reproduction context.
+     */
+    environment?: string;
+    /**
+     * Epic task ID in the same project, or zero.
+     */
+    epic_id?: number;
+    /**
+     * Estimated hours.
+     */
+    estimate?: number;
+    /**
+     * Optional last-seen revision; stale edits return 409 without changing the issue.
+     */
+    expected_revision?: number;
+    /**
+     * Optional last-seen updated timestamp; a mismatch rejects stale edits with 409.
+     */
+    expected_updated?: string;
+    /**
+     * Target release or milestone.
+     */
+    fix_version?: string;
+    /**
+     * Story points.
+     */
+    points?: number;
+    /**
+     * Backlog ordering; editable without drag-and-drop.
+     */
+    position?: number;
+    /**
+     * Priority, zero to five.
+     */
+    priority?: number;
+    /**
+     * Owning project; use the authorized move action to change it.
+     */
+    project_id?: number;
+    /**
+     * Impact or severity classification.
+     */
+    severity?: string;
+    /**
+     * Sprint in the same project, or zero for backlog.
+     */
+    sprint_id?: number;
+    /**
+     * Workflow state identifier.
+     */
+    state?: string;
+    /**
+     * Upstream task title.
+     */
+    summary?: string;
+    /**
+     * Project-configured issue type.
+     */
+    type?: string;
+};
+
+export type OwIssueReadBodyWritable = {
+    /**
+     * Version where the problem occurs.
+     */
+    affected_version?: string;
+    /**
+     * Archived issues are excluded from ordinary lists.
+     */
+    archived?: boolean;
+    /**
+     * Assignees with access to the project.
+     */
+    assignee_ids?: Array<number> | null;
+    /**
+     * Component name.
+     */
+    component?: string;
+    /**
+     * Values validated against the project's field definitions.
+     */
+    custom?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Rich-text upstream description.
+     */
+    description?: string;
+    /**
+     * Optional due date.
+     */
+    due_date?: string;
+    /**
+     * Environment and reproduction context.
+     */
+    environment?: string;
+    /**
+     * Epic task ID in the same project, or zero.
+     */
+    epic_id?: number;
+    /**
+     * Estimated hours.
+     */
+    estimate?: number;
+    /**
+     * Optional last-seen revision; stale edits return 409 without changing the issue.
+     */
+    expected_revision?: number;
+    /**
+     * Optional last-seen updated timestamp; a mismatch rejects stale edits with 409.
+     */
+    expected_updated?: string;
+    /**
+     * Target release or milestone.
+     */
+    fix_version?: string;
+    /**
+     * Story points.
+     */
+    points?: number;
+    /**
+     * Backlog ordering; editable without drag-and-drop.
+     */
+    position?: number;
+    /**
+     * Priority, zero to five.
+     */
+    priority?: number;
+    /**
+     * Owning project; use the authorized move action to change it.
+     */
+    project_id?: number;
+    /**
+     * Impact or severity classification.
+     */
+    severity?: string;
+    /**
+     * Sprint in the same project, or zero for backlog.
+     */
+    sprint_id?: number;
+    /**
+     * Workflow state identifier.
+     */
+    state?: string;
+    /**
+     * Upstream task title.
+     */
+    summary?: string;
+    /**
+     * Project-configured issue type.
+     */
+    type?: string;
+};
+
+export type OwProjectInfoWritable = {
+    /**
+     * Current project permission: 0 viewer, 1 contributor, 2 administrator.
+     */
+    permission?: number;
+    /**
+     * Accessible upstream project.
+     */
+    project?: ProjectWritable;
+    /**
+     * My Tickets configuration; null for an unconfigured legacy project.
+     */
+    settings?: OwProjectSettingsWritable;
+};
+
+export type OwProjectSettingsWritable = {
+    /**
+     * Project-scoped typed custom fields.
+     */
+    fields?: Array<OwField> | null;
+    /**
+     * Immutable uppercase project key.
+     */
+    key?: string;
+    /**
+     * Upstream project ID.
+     */
+    project_id?: number;
+    /**
+     * Ordered workflow columns.
+     */
+    states?: Array<OwState> | null;
+    /**
+     * Authorized workflow transitions.
+     */
+    transitions?: Array<OwTransition> | null;
+    /**
+     * Allowed issue types.
+     */
+    types?: Array<string> | null;
+};
+
+export type OwProjectSettingsBodyWritable = {
+    /**
+     * Project-scoped typed custom fields.
+     */
+    fields?: Array<OwField> | null;
+    /**
+     * Immutable uppercase project key.
+     */
+    key?: string;
+    /**
+     * Upstream project ID.
+     */
+    project_id?: number;
+    /**
+     * Ordered workflow columns.
+     */
+    states?: Array<OwState> | null;
+    /**
+     * Authorized workflow transitions.
+     */
+    transitions?: Array<OwTransition> | null;
+    /**
+     * Allowed issue types.
+     */
+    types?: Array<string> | null;
+};
+
+export type OwSavedViewWritable = {
+    /**
+     * Saved compound filter.
+     */
+    filter?: OwFilterWritable;
+    /**
+     * View name.
+     */
+    name?: string;
+    /**
+     * Shared definition; results are always scoped to each viewer.
+     */
+    shared?: boolean;
+};
+
+export type OwSavedViewReadBodyWritable = {
+    /**
+     * Saved compound filter.
+     */
+    filter?: OwFilterWritable;
+    /**
+     * View name.
+     */
+    name?: string;
+    /**
+     * Shared definition; results are always scoped to each viewer.
+     */
+    shared?: boolean;
+};
+
+export type OwSprintWritable = {
+    /**
+     * Planned end.
+     */
+    end?: string;
+    /**
+     * Sprint goal.
+     */
+    goal?: string;
+    /**
+     * Sprint name.
+     */
+    name?: string;
+    /**
+     * Owning project.
+     */
+    project_id?: number;
+    /**
+     * Planned start.
+     */
+    start?: string;
+};
+
+export type OwSprintLifecycleInputBodyWritable = {
+    /**
+     * Zero returns unfinished issues to backlog.
+     */
+    next_sprint_id?: number;
+};
+
+export type OwSprintReadBodyWritable = {
+    /**
+     * Planned end.
+     */
+    end?: string;
+    /**
+     * Sprint goal.
+     */
+    goal?: string;
+    /**
+     * Sprint name.
+     */
+    name?: string;
+    /**
+     * Owning project.
+     */
+    project_id?: number;
+    /**
+     * Planned start.
+     */
+    start?: string;
+};
+
+export type OwWidgetWritable = {
+    /**
+     * Presentation choice; empty uses the calculation's default.
+     */
+    chart?: '' | 'metric' | 'line' | 'bar' | 'donut' | 'table';
+    /**
+     * Optional widget-level filter overrides.
+     */
+    filter?: OwFilterWritable;
+    /**
+     * Height in grid rows.
+     */
+    h?: number;
+    /**
+     * Stable widget ID.
+     */
+    id?: string;
+    /**
+     * Metric, chart, list or activity widget kind.
+     */
+    kind?: string;
+    /**
+     * Widget heading.
+     */
+    title?: string;
+    /**
+     * Width in grid columns.
+     */
+    w?: number;
+    /**
+     * Grid column, zero-based.
+     */
+    x?: number;
+    /**
+     * Grid row, zero-based.
+     */
+    y?: number;
+};
+
+export type OwWidgetDataWritable = {
+    /**
+     * Authorized activity feed.
+     */
+    activities?: Array<OwActivityWritable> | null;
+    /**
+     * Widget ID.
+     */
+    id?: string;
+    /**
+     * Authorized recent issue rows.
+     */
+    issues?: Array<OwIssueWritable> | null;
+    /**
+     * Calculation kind.
+     */
+    kind?: string;
+    /**
+     * Computed chart observations, including zero-value days.
+     */
+    points?: Array<OwPoint> | null;
+    /**
+     * Widget title.
+     */
+    title?: string;
+    /**
+     * Denominator for progress metrics.
+     */
+    total?: number;
+    /**
+     * Primary computed metric.
+     */
+    value?: number;
+};
+
 export type PaginatedApiTokenWritable = {
     items?: Array<ApiTokenWritable> | null;
     page?: number;
@@ -4102,6 +5979,38 @@ export type PaginatedLabelWithTaskIdWritable = {
 
 export type PaginatedLinkSharingWritable = {
     items?: Array<LinkSharingWritable> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwDashboardWritable = {
+    items?: Array<OwDashboardWritable> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwIssueWritable = {
+    items?: Array<OwIssueWritable> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwSavedViewWritable = {
+    items?: Array<OwSavedViewWritable> | null;
+    page?: number;
+    per_page?: number;
+    total?: number;
+    total_pages?: number;
+};
+
+export type PaginatedOwSprintWritable = {
+    items?: Array<OwSprintWritable> | null;
     page?: number;
     per_page?: number;
     total?: number;
@@ -4706,6 +6615,57 @@ export type TeamWithPermissionWritable = {
      * The name of this team.
      */
     name?: string;
+};
+
+export type TicketsAttachmentsStateRequestWritable = {
+    /**
+     * False restores the attachment.
+     */
+    deleted?: boolean;
+};
+
+export type TicketsDashboardLayoutRequestWritable = {
+    /**
+     * Only layout dimensions and positions are changed.
+     */
+    widgets?: Array<OwWidgetWritable> | null;
+};
+
+export type TicketsDashboardTemplateRequestWritable = {
+    /**
+     * Optional project scope.
+     */
+    project_id?: number;
+};
+
+export type TicketsIssueMoveRequestWritable = {
+    project_id?: number;
+};
+
+export type TicketsProjectCreateRequestWritable = {
+    /**
+     * Unique immutable uppercase key.
+     */
+    key?: string;
+    /**
+     * Project title.
+     */
+    title?: string;
+};
+
+export type TicketsQueryRequestWritable = {
+    /**
+     * Compound authorized query.
+     */
+    filter?: OwFilterWritable;
+    /**
+     * One-based page.
+     */
+    page?: number;
+    /**
+     * Page size, at most 200.
+     */
+    per_page?: number;
 };
 
 export type TimeEntryWritable = {
@@ -10198,6 +12158,1478 @@ export type TeamsMembersToggleAdminResponses = {
 };
 
 export type TeamsMembersToggleAdminResponse = TeamsMembersToggleAdminResponses[keyof TeamsMembersToggleAdminResponses];
+
+export type TicketsAttachmentsDownloadData = {
+    body?: never;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/tickets/attachments/{id}';
+};
+
+export type TicketsAttachmentsDownloadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsAttachmentsDownloadError = TicketsAttachmentsDownloadErrors[keyof TicketsAttachmentsDownloadErrors];
+
+export type TicketsAttachmentsDownloadResponses = {
+    /**
+     * OK
+     */
+    200: unknown;
+};
+
+export type TicketsAttachmentsStateData = {
+    body: TicketsAttachmentsStateRequestWritable;
+    path: {
+        id: string;
+    };
+    query?: never;
+    url: '/tickets/attachments/{id}/state';
+};
+
+export type TicketsAttachmentsStateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsAttachmentsStateError = TicketsAttachmentsStateErrors[keyof TicketsAttachmentsStateErrors];
+
+export type TicketsAttachmentsStateResponses = {
+    /**
+     * No Content
+     */
+    204: void;
+};
+
+export type TicketsAttachmentsStateResponse = TicketsAttachmentsStateResponses[keyof TicketsAttachmentsStateResponses];
+
+export type TicketsBulkData = {
+    body: OwBulkChangeWritable;
+    path?: never;
+    query?: never;
+    url: '/tickets/bulk';
+};
+
+export type TicketsBulkErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsBulkError = TicketsBulkErrors[keyof TicketsBulkErrors];
+
+export type TicketsBulkResponses = {
+    /**
+     * Created
+     */
+    201: Array<string> | null;
+};
+
+export type TicketsBulkResponse = TicketsBulkResponses[keyof TicketsBulkResponses];
+
+export type TicketsCatalogData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/tickets/catalog';
+};
+
+export type TicketsCatalogErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsCatalogError = TicketsCatalogErrors[keyof TicketsCatalogErrors];
+
+export type TicketsCatalogResponses = {
+    /**
+     * OK
+     */
+    200: OwCatalog;
+};
+
+export type TicketsCatalogResponse = TicketsCatalogResponses[keyof TicketsCatalogResponses];
+
+export type TicketsDashboardTemplateData = {
+    body: TicketsDashboardTemplateRequestWritable;
+    path: {
+        name: 'Personal' | 'Project Overview' | 'Engineering' | 'Sprint Overview';
+    };
+    query?: never;
+    url: '/tickets/dashboard-templates/{name}';
+};
+
+export type TicketsDashboardTemplateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardTemplateError = TicketsDashboardTemplateErrors[keyof TicketsDashboardTemplateErrors];
+
+export type TicketsDashboardTemplateResponses = {
+    /**
+     * Created
+     */
+    201: OwDashboard;
+};
+
+export type TicketsDashboardTemplateResponse = TicketsDashboardTemplateResponses[keyof TicketsDashboardTemplateResponses];
+
+export type TicketsDashboardsListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 1-based page number.
+         */
+        page?: number;
+        /**
+         * Items per page. Defaults to the instance's configured maximum (service.maxitemsperpage, reported as max_items_per_page by /info) and is silently capped at it; asking for more is not an error.
+         */
+        per_page?: number;
+        /**
+         * Search query; filters the list to items matching this string.
+         */
+        q?: string;
+        /**
+         * Optional project scope.
+         */
+        project_id?: number;
+    };
+    url: '/tickets/dashboards';
+};
+
+export type TicketsDashboardsListErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardsListError = TicketsDashboardsListErrors[keyof TicketsDashboardsListErrors];
+
+export type TicketsDashboardsListResponses = {
+    /**
+     * OK
+     */
+    200: PaginatedOwDashboard;
+};
+
+export type TicketsDashboardsListResponse = TicketsDashboardsListResponses[keyof TicketsDashboardsListResponses];
+
+export type TicketsDashboardsCreateData = {
+    body: OwDashboardWritable;
+    path?: never;
+    query?: never;
+    url: '/tickets/dashboards';
+};
+
+export type TicketsDashboardsCreateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardsCreateError = TicketsDashboardsCreateErrors[keyof TicketsDashboardsCreateErrors];
+
+export type TicketsDashboardsCreateResponses = {
+    /**
+     * Created
+     */
+    201: OwDashboard;
+};
+
+export type TicketsDashboardsCreateResponse = TicketsDashboardsCreateResponses[keyof TicketsDashboardsCreateResponses];
+
+export type TicketsDashboardsDeleteData = {
+    body?: never;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/dashboards/{id}';
+};
+
+export type TicketsDashboardsDeleteErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardsDeleteError = TicketsDashboardsDeleteErrors[keyof TicketsDashboardsDeleteErrors];
+
+export type TicketsDashboardsDeleteResponses = {
+    /**
+     * No Content
+     */
+    204: void;
+};
+
+export type TicketsDashboardsDeleteResponse = TicketsDashboardsDeleteResponses[keyof TicketsDashboardsDeleteResponses];
+
+export type TicketsDashboardsReadData = {
+    body?: never;
+    headers?: {
+        /**
+         * Succeeds if the server's resource matches one of the passed values.
+         */
+        'If-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource matches none of the passed values. On writes, the special value * may be used to match any existing value.
+         */
+        'If-None-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource date is more recent than the passed date.
+         */
+        'If-Modified-Since'?: string;
+        /**
+         * Succeeds if the server's resource date is older or the same as the passed date.
+         */
+        'If-Unmodified-Since'?: string;
+    };
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/dashboards/{id}';
+};
+
+export type TicketsDashboardsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardsReadError = TicketsDashboardsReadErrors[keyof TicketsDashboardsReadErrors];
+
+export type TicketsDashboardsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwDashboardReadBody;
+};
+
+export type TicketsDashboardsReadResponse = TicketsDashboardsReadResponses[keyof TicketsDashboardsReadResponses];
+
+export type PatchTicketsDashboardsReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/dashboards/{id}';
+};
+
+export type PatchTicketsDashboardsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchTicketsDashboardsReadError = PatchTicketsDashboardsReadErrors[keyof PatchTicketsDashboardsReadErrors];
+
+export type PatchTicketsDashboardsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwDashboard;
+};
+
+export type PatchTicketsDashboardsReadResponse = PatchTicketsDashboardsReadResponses[keyof PatchTicketsDashboardsReadResponses];
+
+export type TicketsDashboardsUpdateData = {
+    body: OwDashboardReadBodyWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/dashboards/{id}';
+};
+
+export type TicketsDashboardsUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardsUpdateError = TicketsDashboardsUpdateErrors[keyof TicketsDashboardsUpdateErrors];
+
+export type TicketsDashboardsUpdateResponses = {
+    /**
+     * OK
+     */
+    200: OwDashboard;
+};
+
+export type TicketsDashboardsUpdateResponse = TicketsDashboardsUpdateResponses[keyof TicketsDashboardsUpdateResponses];
+
+export type TicketsDashboardDataData = {
+    body?: never;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/dashboards/{id}/data';
+};
+
+export type TicketsDashboardDataErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardDataError = TicketsDashboardDataErrors[keyof TicketsDashboardDataErrors];
+
+export type TicketsDashboardDataResponses = {
+    /**
+     * OK
+     */
+    200: OwDashboardData;
+};
+
+export type TicketsDashboardDataResponse = TicketsDashboardDataResponses[keyof TicketsDashboardDataResponses];
+
+export type TicketsDashboardLayoutData = {
+    body: TicketsDashboardLayoutRequestWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/dashboards/{id}/layout';
+};
+
+export type TicketsDashboardLayoutErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsDashboardLayoutError = TicketsDashboardLayoutErrors[keyof TicketsDashboardLayoutErrors];
+
+export type TicketsDashboardLayoutResponses = {
+    /**
+     * Created
+     */
+    201: unknown;
+};
+
+export type TicketsIssuesListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 1-based page number.
+         */
+        page?: number;
+        /**
+         * Items per page. Defaults to the instance's configured maximum (service.maxitemsperpage, reported as max_items_per_page by /info) and is silently capped at it; asking for more is not an error.
+         */
+        per_page?: number;
+        /**
+         * Search query; filters the list to items matching this string.
+         */
+        q?: string;
+        /**
+         * Optional project scope.
+         */
+        project_id?: number;
+    };
+    url: '/tickets/issues';
+};
+
+export type TicketsIssuesListErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssuesListError = TicketsIssuesListErrors[keyof TicketsIssuesListErrors];
+
+export type TicketsIssuesListResponses = {
+    /**
+     * OK
+     */
+    200: PaginatedOwIssue;
+};
+
+export type TicketsIssuesListResponse = TicketsIssuesListResponses[keyof TicketsIssuesListResponses];
+
+export type TicketsIssuesCreateData = {
+    body: OwIssueWritable;
+    path?: never;
+    query?: never;
+    url: '/tickets/issues';
+};
+
+export type TicketsIssuesCreateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssuesCreateError = TicketsIssuesCreateErrors[keyof TicketsIssuesCreateErrors];
+
+export type TicketsIssuesCreateResponses = {
+    /**
+     * Created
+     */
+    201: OwIssue;
+};
+
+export type TicketsIssuesCreateResponse = TicketsIssuesCreateResponses[keyof TicketsIssuesCreateResponses];
+
+export type TicketsIssuesDeleteData = {
+    body?: never;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}';
+};
+
+export type TicketsIssuesDeleteErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssuesDeleteError = TicketsIssuesDeleteErrors[keyof TicketsIssuesDeleteErrors];
+
+export type TicketsIssuesDeleteResponses = {
+    /**
+     * No Content
+     */
+    204: void;
+};
+
+export type TicketsIssuesDeleteResponse = TicketsIssuesDeleteResponses[keyof TicketsIssuesDeleteResponses];
+
+export type TicketsIssuesReadData = {
+    body?: never;
+    headers?: {
+        /**
+         * Succeeds if the server's resource matches one of the passed values.
+         */
+        'If-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource matches none of the passed values. On writes, the special value * may be used to match any existing value.
+         */
+        'If-None-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource date is more recent than the passed date.
+         */
+        'If-Modified-Since'?: string;
+        /**
+         * Succeeds if the server's resource date is older or the same as the passed date.
+         */
+        'If-Unmodified-Since'?: string;
+    };
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}';
+};
+
+export type TicketsIssuesReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssuesReadError = TicketsIssuesReadErrors[keyof TicketsIssuesReadErrors];
+
+export type TicketsIssuesReadResponses = {
+    /**
+     * OK
+     */
+    200: OwIssueReadBody;
+};
+
+export type TicketsIssuesReadResponse = TicketsIssuesReadResponses[keyof TicketsIssuesReadResponses];
+
+export type PatchTicketsIssuesReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}';
+};
+
+export type PatchTicketsIssuesReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchTicketsIssuesReadError = PatchTicketsIssuesReadErrors[keyof PatchTicketsIssuesReadErrors];
+
+export type PatchTicketsIssuesReadResponses = {
+    /**
+     * OK
+     */
+    200: OwIssue;
+};
+
+export type PatchTicketsIssuesReadResponse = PatchTicketsIssuesReadResponses[keyof PatchTicketsIssuesReadResponses];
+
+export type TicketsIssuesUpdateData = {
+    body: OwIssueReadBodyWritable;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}';
+};
+
+export type TicketsIssuesUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssuesUpdateError = TicketsIssuesUpdateErrors[keyof TicketsIssuesUpdateErrors];
+
+export type TicketsIssuesUpdateResponses = {
+    /**
+     * OK
+     */
+    200: OwIssue;
+};
+
+export type TicketsIssuesUpdateResponse = TicketsIssuesUpdateResponses[keyof TicketsIssuesUpdateResponses];
+
+export type TicketsIssueActivityData = {
+    body?: never;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}/activity';
+};
+
+export type TicketsIssueActivityErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssueActivityError = TicketsIssueActivityErrors[keyof TicketsIssueActivityErrors];
+
+export type TicketsIssueActivityResponses = {
+    /**
+     * OK
+     */
+    200: Array<OwActivity> | null;
+};
+
+export type TicketsIssueActivityResponse = TicketsIssueActivityResponses[keyof TicketsIssueActivityResponses];
+
+export type TicketsAttachmentsListData = {
+    body?: never;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}/attachments';
+};
+
+export type TicketsAttachmentsListErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsAttachmentsListError = TicketsAttachmentsListErrors[keyof TicketsAttachmentsListErrors];
+
+export type TicketsAttachmentsListResponses = {
+    /**
+     * OK
+     */
+    200: Array<OwAttachment> | null;
+};
+
+export type TicketsAttachmentsListResponse = TicketsAttachmentsListResponses[keyof TicketsAttachmentsListResponses];
+
+export type TicketsAttachmentsUploadData = {
+    body: {
+        /**
+         * One file, up to 64 MB.
+         */
+        file: Blob | File;
+    };
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}/attachments';
+};
+
+export type TicketsAttachmentsUploadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsAttachmentsUploadError = TicketsAttachmentsUploadErrors[keyof TicketsAttachmentsUploadErrors];
+
+export type TicketsAttachmentsUploadResponses = {
+    /**
+     * Created
+     */
+    201: OwAttachment;
+};
+
+export type TicketsAttachmentsUploadResponse = TicketsAttachmentsUploadResponses[keyof TicketsAttachmentsUploadResponses];
+
+export type TicketsIssueDuplicateData = {
+    body?: never;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}/duplicate';
+};
+
+export type TicketsIssueDuplicateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssueDuplicateError = TicketsIssueDuplicateErrors[keyof TicketsIssueDuplicateErrors];
+
+export type TicketsIssueDuplicateResponses = {
+    /**
+     * Created
+     */
+    201: OwIssue;
+};
+
+export type TicketsIssueDuplicateResponse = TicketsIssueDuplicateResponses[keyof TicketsIssueDuplicateResponses];
+
+export type TicketsGitLinksData = {
+    body?: never;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}/git';
+};
+
+export type TicketsGitLinksErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsGitLinksError = TicketsGitLinksErrors[keyof TicketsGitLinksErrors];
+
+export type TicketsGitLinksResponses = {
+    /**
+     * OK
+     */
+    200: Array<OwGitLink> | null;
+};
+
+export type TicketsGitLinksResponse = TicketsGitLinksResponses[keyof TicketsGitLinksResponses];
+
+export type TicketsIssueMoveData = {
+    body: TicketsIssueMoveRequestWritable;
+    path: {
+        key: string;
+    };
+    query?: never;
+    url: '/tickets/issues/{key}/move';
+};
+
+export type TicketsIssueMoveErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsIssueMoveError = TicketsIssueMoveErrors[keyof TicketsIssueMoveErrors];
+
+export type TicketsIssueMoveResponses = {
+    /**
+     * Created
+     */
+    201: OwIssue;
+};
+
+export type TicketsIssueMoveResponse = TicketsIssueMoveResponses[keyof TicketsIssueMoveResponses];
+
+export type TicketsProjectCreateData = {
+    body: TicketsProjectCreateRequestWritable;
+    path?: never;
+    query?: never;
+    url: '/tickets/projects';
+};
+
+export type TicketsProjectCreateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsProjectCreateError = TicketsProjectCreateErrors[keyof TicketsProjectCreateErrors];
+
+export type TicketsProjectCreateResponses = {
+    /**
+     * Created
+     */
+    201: OwProjectSettings;
+};
+
+export type TicketsProjectCreateResponse = TicketsProjectCreateResponses[keyof TicketsProjectCreateResponses];
+
+export type TicketsProjectSettingsReadData = {
+    body?: never;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}';
+};
+
+export type TicketsProjectSettingsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsProjectSettingsReadError = TicketsProjectSettingsReadErrors[keyof TicketsProjectSettingsReadErrors];
+
+export type TicketsProjectSettingsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwProjectSettingsBody;
+};
+
+export type TicketsProjectSettingsReadResponse = TicketsProjectSettingsReadResponses[keyof TicketsProjectSettingsReadResponses];
+
+export type PatchTicketsProjectSettingsReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}';
+};
+
+export type PatchTicketsProjectSettingsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchTicketsProjectSettingsReadError = PatchTicketsProjectSettingsReadErrors[keyof PatchTicketsProjectSettingsReadErrors];
+
+export type PatchTicketsProjectSettingsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwProjectSettings;
+};
+
+export type PatchTicketsProjectSettingsReadResponse = PatchTicketsProjectSettingsReadResponses[keyof PatchTicketsProjectSettingsReadResponses];
+
+export type TicketsProjectSettingsUpdateData = {
+    body: OwProjectSettingsBodyWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}';
+};
+
+export type TicketsProjectSettingsUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsProjectSettingsUpdateError = TicketsProjectSettingsUpdateErrors[keyof TicketsProjectSettingsUpdateErrors];
+
+export type TicketsProjectSettingsUpdateResponses = {
+    /**
+     * OK
+     */
+    200: OwProjectSettings;
+};
+
+export type TicketsProjectSettingsUpdateResponse = TicketsProjectSettingsUpdateResponses[keyof TicketsProjectSettingsUpdateResponses];
+
+export type TicketsGitSettingsReadData = {
+    body?: never;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}/git';
+};
+
+export type TicketsGitSettingsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsGitSettingsReadError = TicketsGitSettingsReadErrors[keyof TicketsGitSettingsReadErrors];
+
+export type TicketsGitSettingsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwGitSettings;
+};
+
+export type TicketsGitSettingsReadResponse = TicketsGitSettingsReadResponses[keyof TicketsGitSettingsReadResponses];
+
+export type PatchTicketsGitSettingsReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}/git';
+};
+
+export type PatchTicketsGitSettingsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchTicketsGitSettingsReadError = PatchTicketsGitSettingsReadErrors[keyof PatchTicketsGitSettingsReadErrors];
+
+export type PatchTicketsGitSettingsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwGitSettings;
+};
+
+export type PatchTicketsGitSettingsReadResponse = PatchTicketsGitSettingsReadResponses[keyof PatchTicketsGitSettingsReadResponses];
+
+export type TicketsGitSettingsUpdateData = {
+    body: OwGitSettingsWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}/git';
+};
+
+export type TicketsGitSettingsUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsGitSettingsUpdateError = TicketsGitSettingsUpdateErrors[keyof TicketsGitSettingsUpdateErrors];
+
+export type TicketsGitSettingsUpdateResponses = {
+    /**
+     * OK
+     */
+    200: OwGitSettings;
+};
+
+export type TicketsGitSettingsUpdateResponse = TicketsGitSettingsUpdateResponses[keyof TicketsGitSettingsUpdateResponses];
+
+export type TicketsGitResyncData = {
+    body?: never;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}/git/resync';
+};
+
+export type TicketsGitResyncErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsGitResyncError = TicketsGitResyncErrors[keyof TicketsGitResyncErrors];
+
+export type TicketsGitResyncResponses = {
+    /**
+     * Created
+     */
+    201: Array<OwGitLink> | null;
+};
+
+export type TicketsGitResyncResponse = TicketsGitResyncResponses[keyof TicketsGitResyncResponses];
+
+export type TicketsGitWebhookData = {
+    body: Blob | File;
+    headers?: {
+        'X-Gitea-Event'?: string;
+        'X-Gitea-Delivery'?: string;
+        'X-Gitea-Signature'?: string;
+    };
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/projects/{id}/git/webhook';
+};
+
+export type TicketsGitWebhookErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsGitWebhookError = TicketsGitWebhookErrors[keyof TicketsGitWebhookErrors];
+
+export type TicketsGitWebhookResponses = {
+    /**
+     * Created
+     */
+    201: Array<OwGitLink> | null;
+};
+
+export type TicketsGitWebhookResponse = TicketsGitWebhookResponses[keyof TicketsGitWebhookResponses];
+
+export type TicketsQueryData = {
+    body: TicketsQueryRequestWritable;
+    path?: never;
+    query?: never;
+    url: '/tickets/query';
+};
+
+export type TicketsQueryErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsQueryError = TicketsQueryErrors[keyof TicketsQueryErrors];
+
+export type TicketsQueryResponses = {
+    /**
+     * Created
+     */
+    201: PaginatedOwIssue;
+};
+
+export type TicketsQueryResponse = TicketsQueryResponses[keyof TicketsQueryResponses];
+
+export type TicketsReportData = {
+    body: OwFilterWritable;
+    path: {
+        kind: string;
+    };
+    query?: never;
+    url: '/tickets/reports/{kind}';
+};
+
+export type TicketsReportErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsReportError = TicketsReportErrors[keyof TicketsReportErrors];
+
+export type TicketsReportResponses = {
+    /**
+     * Created
+     */
+    201: OwWidgetData;
+};
+
+export type TicketsReportResponse = TicketsReportResponses[keyof TicketsReportResponses];
+
+export type TicketsSprintsListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 1-based page number.
+         */
+        page?: number;
+        /**
+         * Items per page. Defaults to the instance's configured maximum (service.maxitemsperpage, reported as max_items_per_page by /info) and is silently capped at it; asking for more is not an error.
+         */
+        per_page?: number;
+        /**
+         * Search query; filters the list to items matching this string.
+         */
+        q?: string;
+        /**
+         * Optional project scope.
+         */
+        project_id?: number;
+    };
+    url: '/tickets/sprints';
+};
+
+export type TicketsSprintsListErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsSprintsListError = TicketsSprintsListErrors[keyof TicketsSprintsListErrors];
+
+export type TicketsSprintsListResponses = {
+    /**
+     * OK
+     */
+    200: PaginatedOwSprint;
+};
+
+export type TicketsSprintsListResponse = TicketsSprintsListResponses[keyof TicketsSprintsListResponses];
+
+export type TicketsSprintsCreateData = {
+    body: OwSprintWritable;
+    path?: never;
+    query?: never;
+    url: '/tickets/sprints';
+};
+
+export type TicketsSprintsCreateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsSprintsCreateError = TicketsSprintsCreateErrors[keyof TicketsSprintsCreateErrors];
+
+export type TicketsSprintsCreateResponses = {
+    /**
+     * Created
+     */
+    201: OwSprint;
+};
+
+export type TicketsSprintsCreateResponse = TicketsSprintsCreateResponses[keyof TicketsSprintsCreateResponses];
+
+export type TicketsSprintsDeleteData = {
+    body?: never;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/sprints/{id}';
+};
+
+export type TicketsSprintsDeleteErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsSprintsDeleteError = TicketsSprintsDeleteErrors[keyof TicketsSprintsDeleteErrors];
+
+export type TicketsSprintsDeleteResponses = {
+    /**
+     * No Content
+     */
+    204: void;
+};
+
+export type TicketsSprintsDeleteResponse = TicketsSprintsDeleteResponses[keyof TicketsSprintsDeleteResponses];
+
+export type TicketsSprintsReadData = {
+    body?: never;
+    headers?: {
+        /**
+         * Succeeds if the server's resource matches one of the passed values.
+         */
+        'If-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource matches none of the passed values. On writes, the special value * may be used to match any existing value.
+         */
+        'If-None-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource date is more recent than the passed date.
+         */
+        'If-Modified-Since'?: string;
+        /**
+         * Succeeds if the server's resource date is older or the same as the passed date.
+         */
+        'If-Unmodified-Since'?: string;
+    };
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/sprints/{id}';
+};
+
+export type TicketsSprintsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsSprintsReadError = TicketsSprintsReadErrors[keyof TicketsSprintsReadErrors];
+
+export type TicketsSprintsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwSprintReadBody;
+};
+
+export type TicketsSprintsReadResponse = TicketsSprintsReadResponses[keyof TicketsSprintsReadResponses];
+
+export type PatchTicketsSprintsReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/sprints/{id}';
+};
+
+export type PatchTicketsSprintsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchTicketsSprintsReadError = PatchTicketsSprintsReadErrors[keyof PatchTicketsSprintsReadErrors];
+
+export type PatchTicketsSprintsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwSprint;
+};
+
+export type PatchTicketsSprintsReadResponse = PatchTicketsSprintsReadResponses[keyof PatchTicketsSprintsReadResponses];
+
+export type TicketsSprintsUpdateData = {
+    body: OwSprintReadBodyWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/sprints/{id}';
+};
+
+export type TicketsSprintsUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsSprintsUpdateError = TicketsSprintsUpdateErrors[keyof TicketsSprintsUpdateErrors];
+
+export type TicketsSprintsUpdateResponses = {
+    /**
+     * OK
+     */
+    200: OwSprint;
+};
+
+export type TicketsSprintsUpdateResponse = TicketsSprintsUpdateResponses[keyof TicketsSprintsUpdateResponses];
+
+export type TicketsSprintCloseData = {
+    body: OwSprintLifecycleInputBodyWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/sprints/{id}/close';
+};
+
+export type TicketsSprintCloseErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsSprintCloseError = TicketsSprintCloseErrors[keyof TicketsSprintCloseErrors];
+
+export type TicketsSprintCloseResponses = {
+    /**
+     * Created
+     */
+    201: OwSprint;
+};
+
+export type TicketsSprintCloseResponse = TicketsSprintCloseResponses[keyof TicketsSprintCloseResponses];
+
+export type TicketsSprintStartData = {
+    body: OwSprintLifecycleInputBodyWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/sprints/{id}/start';
+};
+
+export type TicketsSprintStartErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsSprintStartError = TicketsSprintStartErrors[keyof TicketsSprintStartErrors];
+
+export type TicketsSprintStartResponses = {
+    /**
+     * Created
+     */
+    201: OwSprint;
+};
+
+export type TicketsSprintStartResponse = TicketsSprintStartResponses[keyof TicketsSprintStartResponses];
+
+export type TicketsViewsListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 1-based page number.
+         */
+        page?: number;
+        /**
+         * Items per page. Defaults to the instance's configured maximum (service.maxitemsperpage, reported as max_items_per_page by /info) and is silently capped at it; asking for more is not an error.
+         */
+        per_page?: number;
+        /**
+         * Search query; filters the list to items matching this string.
+         */
+        q?: string;
+        /**
+         * Optional project scope.
+         */
+        project_id?: number;
+    };
+    url: '/tickets/views';
+};
+
+export type TicketsViewsListErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsViewsListError = TicketsViewsListErrors[keyof TicketsViewsListErrors];
+
+export type TicketsViewsListResponses = {
+    /**
+     * OK
+     */
+    200: PaginatedOwSavedView;
+};
+
+export type TicketsViewsListResponse = TicketsViewsListResponses[keyof TicketsViewsListResponses];
+
+export type TicketsViewsCreateData = {
+    body: OwSavedViewWritable;
+    path?: never;
+    query?: never;
+    url: '/tickets/views';
+};
+
+export type TicketsViewsCreateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsViewsCreateError = TicketsViewsCreateErrors[keyof TicketsViewsCreateErrors];
+
+export type TicketsViewsCreateResponses = {
+    /**
+     * Created
+     */
+    201: OwSavedView;
+};
+
+export type TicketsViewsCreateResponse = TicketsViewsCreateResponses[keyof TicketsViewsCreateResponses];
+
+export type TicketsViewsDeleteData = {
+    body?: never;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/views/{id}';
+};
+
+export type TicketsViewsDeleteErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsViewsDeleteError = TicketsViewsDeleteErrors[keyof TicketsViewsDeleteErrors];
+
+export type TicketsViewsDeleteResponses = {
+    /**
+     * No Content
+     */
+    204: void;
+};
+
+export type TicketsViewsDeleteResponse = TicketsViewsDeleteResponses[keyof TicketsViewsDeleteResponses];
+
+export type TicketsViewsReadData = {
+    body?: never;
+    headers?: {
+        /**
+         * Succeeds if the server's resource matches one of the passed values.
+         */
+        'If-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource matches none of the passed values. On writes, the special value * may be used to match any existing value.
+         */
+        'If-None-Match'?: Array<string> | null;
+        /**
+         * Succeeds if the server's resource date is more recent than the passed date.
+         */
+        'If-Modified-Since'?: string;
+        /**
+         * Succeeds if the server's resource date is older or the same as the passed date.
+         */
+        'If-Unmodified-Since'?: string;
+    };
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/views/{id}';
+};
+
+export type TicketsViewsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsViewsReadError = TicketsViewsReadErrors[keyof TicketsViewsReadErrors];
+
+export type TicketsViewsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwSavedViewReadBody;
+};
+
+export type TicketsViewsReadResponse = TicketsViewsReadResponses[keyof TicketsViewsReadResponses];
+
+export type PatchTicketsViewsReadData = {
+    body: Array<JsonPatchOp> | null;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/views/{id}';
+};
+
+export type PatchTicketsViewsReadErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type PatchTicketsViewsReadError = PatchTicketsViewsReadErrors[keyof PatchTicketsViewsReadErrors];
+
+export type PatchTicketsViewsReadResponses = {
+    /**
+     * OK
+     */
+    200: OwSavedView;
+};
+
+export type PatchTicketsViewsReadResponse = PatchTicketsViewsReadResponses[keyof PatchTicketsViewsReadResponses];
+
+export type TicketsViewsUpdateData = {
+    body: OwSavedViewReadBodyWritable;
+    path: {
+        id: number;
+    };
+    query?: never;
+    url: '/tickets/views/{id}';
+};
+
+export type TicketsViewsUpdateErrors = {
+    /**
+     * Error
+     */
+    default: VikunjaErrorModel;
+};
+
+export type TicketsViewsUpdateError = TicketsViewsUpdateErrors[keyof TicketsViewsUpdateErrors];
+
+export type TicketsViewsUpdateResponses = {
+    /**
+     * OK
+     */
+    200: OwSavedView;
+};
+
+export type TicketsViewsUpdateResponse = TicketsViewsUpdateResponses[keyof TicketsViewsUpdateResponses];
 
 export type TimeEntriesListData = {
     body?: never;

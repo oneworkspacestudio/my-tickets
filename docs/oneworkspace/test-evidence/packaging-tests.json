@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "command": "go tool mage -v test:packaging",
+  "packages": [
+    "pkg/db",
+    "pkg/config",
+    "pkg/doctor",
+    "pkg/files"
+  ],
+  "tests": [
+    "TestInitFixturesNamedTables",
+    "Test_resolveDatabasePath_Windows",
+    "TestServiceSecret",
+    "TestCheckDatabase_MemoryPath"
+  ],
+  "regressionFailedBeforeFix": true,
+  "originalFailure": "embedded fixtures/files.yml was joined using Windows backslashes",
+  "fix": "Use path.Join for embed.FS paths, not filepath.Join",
+  "filePackageTestMainPassed": true,
+  "fullSuite": "UNVERIFIED",
+  "lint": "UNVERIFIED: golangci-lint v2.14.0 unavailable",
+  "liveOwnerServicesUsed": false
+}

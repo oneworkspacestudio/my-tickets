@@ -187,6 +187,11 @@ func ensureAPITokenRoutesGroup(target map[string]APITokenRoute, group string) {
 func isStandardCRUDRoute(routeGroupName string, routeParts []string, _ string) bool {
 	// Standard CRUD resource groups that follow the WebHandler pattern
 	crudResources := map[string]bool{
+		"tickets_issues":       true,
+		"tickets_sprints":      true,
+		"tickets_dashboards":   true,
+		"tickets_views":        true,
+		"tickets_projects":     true,
 		"projects":             true,
 		"tasks":                true,
 		"teams":                true,

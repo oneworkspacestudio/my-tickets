@@ -33,6 +33,24 @@ const (
 
 // Anything not listed stays off MCP; credentials, account, webhooks, shares, file transfer and admin routes are deliberately absent.
 var exposedOperations = map[string]toolTier{
+	"tickets-catalog":         catalogTool,
+	"tickets-query":           catalogTool,
+	"tickets-issues-create":   catalogTool,
+	"tickets-issues-read":     catalogTool,
+	"tickets-issues-update":   catalogTool,
+	"tickets-issues-delete":   catalogTool,
+	"tickets-issue-activity":  catalogTool,
+	"tickets-issue-duplicate": catalogTool,
+	"tickets-issue-move":      catalogTool,
+	"tickets-bulk":            catalogTool,
+	"tickets-sprints-list":    catalogTool,
+	"tickets-sprints-create":  catalogTool,
+	"tickets-sprint-start":    catalogTool,
+	"tickets-sprint-close":    catalogTool,
+	"tickets-dashboards-list": catalogTool,
+	"tickets-dashboard-data":  catalogTool,
+	"tickets-report":          catalogTool,
+
 	"buckets-create":                  catalogTool,
 	"buckets-delete":                  catalogTool,
 	"buckets-list":                    catalogTool,

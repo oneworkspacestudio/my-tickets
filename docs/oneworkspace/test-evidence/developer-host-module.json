@@ -1,0 +1,8 @@
+{
+  "module": "ctxapclient64.dll",
+  "publisher": "Citrix Systems, Inc.",
+  "signature": "Valid",
+  "alsoInjectedIntoTestDriver": true,
+  "cleanMachineProof": false,
+  "securitySoftwareWasDisabled": false
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "artifact": "Source-built upstream baseline; not completed My Tickets product",
+  "upstreamCommit": "5619c4a9f66ddfc13f7bbba24ada07c3e82ae7a0",
+  "sha256": "537e158c9b555878eeca190cbbda8f954b5886d33d26b0f5171cd26b96937772",
+  "environmentKind": "DeveloperHost",
+  "environmentDeclarationByOperator": true,
+  "windowsVersion": "Microsoft Windows NT 10.0.22631.0",
+  "initialFileCount": 1,
+  "runtimePath": "Windows system directories only",
+  "embeddedUI": true,
+  "embeddedScriptServed": true,
+  "sqliteWrites": true,
+  "forcedTerminationPersistence": true,
+  "anonymousTaskDenied": true,
+  "nonSystemRuntimeModules": [
+    "ctxapclient64.dll"
+  ],
+  "runtimeModuleAudit": "REVIEW_REQUIRED",
+  "singleExecutableAcceptance": "UNVERIFIED",
+  "browserInteractionTested": false,
+  "customMyTicketsFeaturesTested": false
+}

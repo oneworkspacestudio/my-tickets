@@ -76,6 +76,7 @@ func validateTaskForCreation(t *Task) error {
 
 // Task represents a task in a project
 type Task struct {
+	owManagedWrite bool `xorm:"-" json:"-"`
 	// The unique, numeric id of this task.
 	ID int64 `xorm:"bigint autoincr not null unique pk" json:"id" param:"projecttask" readOnly:"true" doc:"The unique, numeric id of this task."`
 	// The task text. This is what you'll see in the project.
@@ -963,6 +964,15 @@ func setNewTaskIndexes(s *xorm.Session, projectID int64, tasks []*Task) error {
 // @Failure 500 {object} models.Message "Internal error"
 // @Router /projects/{id}/tasks [put]
 func (t *Task) Create(s *xorm.Session, a web.Auth) (err error) {
+	if !t.owManagedWrite {
+		configured, checkErr := s.ID(t.ProjectID).Exist(&OwProjectSettings{})
+		if checkErr != nil {
+			return checkErr
+		}
+		if configured {
+			return owInvalid("Create tickets through the My Tickets API")
+		}
+	}
 	return createTask(s, t, a, true, true)
 }
 
@@ -1045,6 +1055,10 @@ func resolveProvidedBuckets(s *xorm.Session, a web.Auth, projectID int64, tasks 
 
 // createTasks inserts row by row because multi-row inserts don't reliably return autoincrement ids on all supported databases.
 func createTasks(s *xorm.Session, projectID int64, tasks []*Task, a web.Auth, updateAssignees bool, setBucket, preserveIndexes bool) (err error) {
+	if err = owGuardCoreCreate(s, projectID, tasks); err != nil {
+		return err
+	}
+
 	if len(tasks) == 0 {
 		return nil
 	}
@@ -1292,6 +1306,11 @@ func (t *Task) Update(s *xorm.Session, a web.Auth) (err error) {
 
 //nolint:gocyclo
 func (t *Task) updateSingleTask(s *xorm.Session, a web.Auth, fields []string) (err error) {
+	if !t.owManagedWrite {
+		if err := owGuardCoreTask(s, []int64{t.ID}); err != nil {
+			return err
+		}
+	}
 
 	// Row lock so concurrent movers serialize; bypasses the session memo so the read is not the earlier permission-check copy.
 	ot, err := GetTaskSimple(lockingSession(s), &Task{ID: t.ID})
@@ -1695,6 +1714,11 @@ func (t *Task) updateSingleTask(s *xorm.Session, a web.Auth, fields []string) (e
 // updateTasks updates multiple tasks with the same payload.
 // If fields is nil, it updates the default set of columns.
 func updateTasks(s *xorm.Session, a web.Auth, t *Task, ids []int64, fields []string) (tasks []*Task, err error) {
+	if !t.owManagedWrite {
+		if err := owGuardCoreTask(s, ids); err != nil {
+			return nil, err
+		}
+	}
 	seen := make(map[int64]struct{}, len(ids))
 	uniqueIDs := make([]int64, 0, len(ids))
 	for _, id := range ids {
@@ -2148,6 +2172,9 @@ func (t *Task) updateReminders(s *xorm.Session, task *Task) (err error) {
 }
 
 func updateTaskLastUpdated(s *xorm.Session, task *Task) error {
+	if err := owBumpIssueRevision(s, task.ID); err != nil {
+		return err
+	}
 	_, err := s.ID(task.ID).Cols("updated").Update(task)
 	return err
 }
@@ -2165,6 +2192,9 @@ func updateTaskLastUpdated(s *xorm.Session, task *Task) error {
 // @Failure 500 {object} models.Message "Internal error"
 // @Router /tasks/{id} [delete]
 func (t *Task) Delete(s *xorm.Session, a web.Auth) (err error) {
+	if err := owGuardCoreTask(s, []int64{t.ID}); err != nil {
+		return err
+	}
 
 	// duplicate the task for the event
 	fullTask := &Task{ID: t.ID}

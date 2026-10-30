@@ -1,0 +1,16 @@
+My Tickets retains Vikunja's GNU Affero General Public License 3.0-or-later.
+See LICENSE and NOTICE. The upstream commercial licence verification code remains
+unchanged; this fork does not grant upstream enterprise entitlements.
+
+Pinned Go dependencies are recorded in go.mod/go.sum; pinned frontend dependencies
+are recorded in frontend/package.json and frontend/pnpm-lock.yaml. Release packages
+include licenses/dependency-notices.zip with DEPENDENCIES.json and upstream licence/notice
+texts. The corresponding application source archive includes these lockfiles and
+the repeatable dependency-notices.py collector. Development-tool dependencies may
+be included in the notices even when they are not part of the runtime executable.
+
+One Workspace SDK - see included SDK licence.
+github.com/mattn/go-sqlite3 - MIT (SQLite itself is public domain).
+Vue - MIT. TanStack Query - MIT. Tiptap core - MIT. DOMPurify - Apache-2.0 OR MPL-2.0.
+For the exact versions and complete dependency inventory, consult the included
+DEPENDENCIES.json and original upstream licence texts.

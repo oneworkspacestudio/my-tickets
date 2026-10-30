@@ -1,0 +1,4 @@
+
+# Go header fixers use byte offsets; keep Go sources LF on Windows too.
+*.go text eol=lf
+code-header-template.txt text eol=lf

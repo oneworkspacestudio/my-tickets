@@ -43,6 +43,7 @@ func init() {
 // GetTables returns all structs which are also a table.
 func GetTables() []interface{} {
 	return []interface{}{
+		&OwProjectSettings{}, &OwIssue{}, &OwSprint{}, &OwDashboard{}, &OwDashboardLayout{}, &OwActivity{}, &OwSavedView{}, &OwGitSettings{}, &OwGitLink{}, &OwGitDelivery{}, &OwAttachment{},
 		&Project{},
 		&ProjectAncestor{},
 		&Task{},

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "encryptedLiveSnapshot": true,
+  "coreDatabaseIntegrity": true,
+  "sdkDatabaseIntegrity": true,
+  "restoredAccounts": true,
+  "restoredIssue": true,
+  "restoredDashboard": true,
+  "restoredAttachmentExactBytes": true,
+  "anonymousDenied": true,
+  "ownerInstallationUsed": false
+}
