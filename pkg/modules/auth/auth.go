@@ -371,14 +371,14 @@ func checkUserTokenSessionInDB(claims *UserTokenClaims) error {
 	return err
 }
 
-func CreateUserWithRandomUsername(s *xorm.Session, uu *user.User) (u *user.User, err error) {
+func CreateUserWithRandomUsername(s *xorm.Session, uu *user.User, options ...user.CreateUserOptions) (u *user.User, err error) {
 	// Check if we actually have a preferred username and generate a random one right away if we don't
 	for {
 		if uu.Username == "" {
 			uu.Username = petname.Generate(3, "-")
 		}
 
-		u, err = user.CreateUser(s, uu)
+		u, err = user.CreateUser(s, uu, options...)
 		if err == nil {
 			break
 		}

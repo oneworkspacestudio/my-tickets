@@ -55,5 +55,5 @@ try{
  await writeFile(process.env.TICKETS_BACKUP_FILE,await backup.body())
  await ok(await owner.post('/auth/logout',{headers:{Origin:base}}))
  await ok(await owner.get('/api/v2/tickets/issues/WORK-1'),401)
- await writeFile(out+'/api-acceptance.json',JSON.stringify({status:'PASS',ownerInstallationUsed:false,viewerRead:true,viewerWriteDenied:true,hiddenProjectDenied:true,accountFence:true,scopedAgentReadWrite:true,agentScopeCreateDenied:true,agentHiddenProjectDenied:true,mcpInitialize:true,concurrentCreates:16,uniqueKeys:16,staleEditDenied:true,attachmentDeleteRestore:true,nativeLogoutRevoked:true},null,2))
+ await writeFile(out+'/api-acceptance.json',JSON.stringify({status:'PASS',exeSHA256:process.env.TICKETS_TEST_BINARY_SHA256,ownerInstallationUsed:false,viewerRead:true,viewerWriteDenied:true,hiddenProjectDenied:true,accountFence:true,scopedAgentReadWrite:true,agentScopeCreateDenied:true,agentHiddenProjectDenied:true,mcpInitialize:true,concurrentCreates:16,uniqueKeys:16,staleEditDenied:true,attachmentDeleteRestore:true,nativeLogoutRevoked:true},null,2))
 }finally{await owner.dispose();await peer.dispose();await agent.dispose()}

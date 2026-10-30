@@ -94,3 +94,28 @@ func TestCreateUserConfirmationDeferred(t *testing.T) {
 		})
 	}
 }
+
+func TestOwExternalIdentityWithoutVerifiedEmail(t *testing.T) {
+	db.LoadAndAssertFixtures(t)
+	s := db.NewSession()
+	defer s.Close()
+	identity := &User{
+		Username: "workspace-subject-one",
+		Issuer:   "https://accounts.example.test",
+		Subject:  "synthetic-issuer-subject-one",
+	}
+	_, err := CreateUser(s, identity)
+	require.Error(t, err, "ordinary user creation still requires email")
+	options := CreateUserOptions{
+		SkipEmailConfirm:          true,
+		AllowMissingExternalEmail: true,
+	}
+	created, err := CreateUser(s, identity, options)
+	require.NoError(t, err)
+	require.Empty(t, created.Email, "do not invent or trust an unverified email")
+	require.Equal(t, identity.Subject, created.Subject)
+	_, err = CreateUser(s, &User{Username: "local-without-email", Password: "synthetic-password", Issuer: IssuerLocal}, options)
+	require.Error(t, err, "the option must not weaken local-account validation")
+	_, err = CreateUser(s, &User{Username: "external-without-subject", Issuer: "https://accounts.example.test"}, options)
+	require.Error(t, err, "an external identity still needs a subject")
+}

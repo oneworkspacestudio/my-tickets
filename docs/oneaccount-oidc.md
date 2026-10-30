@@ -13,6 +13,11 @@ revocable HttpOnly/SameSite cookie. HTTPS deployments use Secure cookies.
 Subject identity, rather than display name or a claimed administrator field,
 controls account binding. Only the configured verified owner gains system admin.
 
+A verified email is optional for this native adapter. Missing or unverified email
+stays empty; the app never invents an address or links an account by email. The
+underlying user factory has an explicit internal option for authenticated external
+issuer/subject identities; ordinary local-account validation remains unchanged.
+
 Managed installations disable local account creation and password sign-in.
 Standalone mode has a one-time owner setup link and owner-created local members;
 there is no public registration endpoint. Passwords are hashed, not reversible.

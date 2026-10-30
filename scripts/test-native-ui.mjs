@@ -82,6 +82,6 @@ try{
  const before=await context.request.get(base+'/api/v2/tickets/issues/WORK-1')
  assert.equal(before.status(),200)
  assert.equal(errors.length,0,errors.join('\n'))
- await writeFile(out+'/browser-acceptance.json',JSON.stringify({status:'PASS',runtime:'single Windows executable',browser:'Chrome headless, isolated profile',viewport:[1440,1000],mobileViewport:[375,812],realUI:['sign-in','project creation','issue creation','workflow update','comment','attachment','table','board','dashboard','personal layout'],browserBearer:false,consoleErrors:errors,ownerInstallationUsed:false,physicalPhone:false},null,2))
+ await writeFile(out+'/browser-acceptance.json',JSON.stringify({status:'PASS',exeSHA256:process.env.TICKETS_TEST_BINARY_SHA256,runtime:'single Windows executable',browser:'Chrome headless, isolated profile',viewport:[1440,1000],mobileViewport:[375,812],realUI:['sign-in','project creation','issue creation','workflow update','comment','attachment','table','board','dashboard','personal layout'],browserBearer:false,consoleErrors:errors,ownerInstallationUsed:false,physicalPhone:false},null,2))
  await context.close()
 }catch(error){if(activePage){await activePage.screenshot({path:out+'/failure.png',fullPage:true}).catch(()=>{});await writeFile(out+'/failure.json',JSON.stringify({error:String(error),consoleErrors:errors,network},null,2))};throw error}finally{await browser.close()}

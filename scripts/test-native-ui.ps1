@@ -1,6 +1,7 @@
 $ErrorActionPreference='Stop'
 $fixture=Join-Path $env:TICKETS_TEST_ROOT ('ui-'+[Guid]::NewGuid().ToString('N'))
 if(!$env:TICKETS_TEST_EXE -or !$env:TICKETS_TEST_ROOT -or !$env:TICKETS_TEST_EVIDENCE){throw 'Set isolated test paths first'}
+$env:TICKETS_TEST_BINARY_SHA256=(Get-FileHash -LiteralPath $env:TICKETS_TEST_EXE -Algorithm SHA256).Hash.ToLowerInvariant()
 if((Get-Volume -DriveLetter ([IO.Path]::GetPathRoot($fixture).Substring(0,1))).FileSystem -ne 'NTFS'){throw 'UI fixture must be NTFS'}
 New-Item -ItemType Directory -Force $fixture | Out-Null
 Get-ChildItem Env:WORKSPACE_* | ForEach-Object {[Environment]::SetEnvironmentVariable($_.Name,$null,'Process')}

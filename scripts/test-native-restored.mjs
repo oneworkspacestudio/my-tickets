@@ -18,5 +18,5 @@ try{
  assert.equal(content.status(),200)
  assert.equal(await content.text(),'Synthetic attachment, no private content.')
  assert.equal((await client.get('/api/v2/tickets/dashboards/1/data')).status(),200)
- await writeFile(process.env.TICKETS_TEST_EVIDENCE+'/restore-acceptance.json',JSON.stringify({status:'PASS',encryptedLiveSnapshot:true,coreDatabaseIntegrity:true,sdkDatabaseIntegrity:true,restoredAccounts:true,restoredIssue:true,restoredDashboard:true,restoredAttachmentExactBytes:true,anonymousDenied:true,ownerInstallationUsed:false},null,2))
+ await writeFile(process.env.TICKETS_TEST_EVIDENCE+'/restore-acceptance.json',JSON.stringify({status:'PASS',exeSHA256:process.env.TICKETS_TEST_BINARY_SHA256,encryptedLiveSnapshot:true,coreDatabaseIntegrity:true,sdkDatabaseIntegrity:true,restoredAccounts:true,restoredIssue:true,restoredDashboard:true,restoredAttachmentExactBytes:true,anonymousDenied:true,ownerInstallationUsed:false},null,2))
 }finally{await client.dispose()}

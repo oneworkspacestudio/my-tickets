@@ -394,7 +394,7 @@ func goTestPackagesExcept(ctx context.Context, exclude ...string) ([]string, err
 // Tickets runs the isolated My Tickets feature and permission checks.
 func (Test) Tickets(ctx context.Context) error {
 	mg.Deps(initVars, ensureFrontendDistExists)
-	if err := runAndStreamOutput(ctx, "go", "test", goDetectVerboseFlag(), "-p", "1", "-timeout", "15m", "-short", "-run", "^TestOw", "./pkg/models"); err != nil {
+	if err := runAndStreamOutput(ctx, "go", "test", goDetectVerboseFlag(), "-p", "1", "-timeout", "15m", "-short", "-run", "^TestOw", "./pkg/models", "./pkg/user"); err != nil {
 		return err
 	}
 	return runAndStreamOutput(ctx, "go", "test", goDetectVerboseFlag(), "-p", "1", "-timeout", "10m", "-short", "./pkg/modules/mcp", "./pkg/oneworkspace")

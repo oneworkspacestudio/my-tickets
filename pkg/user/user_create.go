@@ -35,6 +35,9 @@ const (
 
 type CreateUserOptions struct {
 	SkipEmailConfirm bool
+	// AllowMissingExternalEmail is reserved for an authenticated issuer/subject adapter.
+	// It never permits a missing local-account email or an empty external subject.
+	AllowMissingExternalEmail bool
 }
 
 // CreateUser creates a new user and inserts it into the database
@@ -45,7 +48,7 @@ func CreateUser(s *xorm.Session, user *User, options ...CreateUserOptions) (newU
 	}
 
 	// Check if we have all required information
-	err = checkIfUserIsValid(user)
+	err = checkIfUserIsValid(user, options...)
 	if err != nil {
 		return nil, err
 	}
@@ -226,8 +229,9 @@ func checkUsernameFormat(username string) error {
 	return nil
 }
 
-func checkIfUserIsValid(user *User) error {
-	if user.Email == "" ||
+func checkIfUserIsValid(user *User, options ...CreateUserOptions) error {
+	allowMissingEmail := len(options) > 0 && options[0].AllowMissingExternalEmail && user.Issuer != "" && user.Issuer != IssuerLocal && user.Subject != ""
+	if (user.Email == "" && !allowMissingEmail) ||
 		(user.Issuer != IssuerLocal && user.Subject == "") ||
 		(user.Issuer == IssuerLocal && (user.Password == "" ||
 			user.Username == "")) {

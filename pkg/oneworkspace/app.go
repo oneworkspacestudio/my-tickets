@@ -28,6 +28,7 @@ import (
 	"html"
 	"io/fs"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strings"
@@ -56,6 +57,7 @@ const ID = "tickets"
 var Version = "0.1.0-preview.1"
 var Commit = "development"
 var BuildTime = "unknown"
+var errInactiveTicketAccount = errors.New("ticket account is inactive")
 
 type nativeSession struct {
 	ID      string
@@ -106,6 +108,10 @@ func serve() error {
 }
 
 func New(h *apphost.Host) (apphost.Application, error) {
+	webOrigin, err := nativeWebOrigin(h.Config.Origin)
+	if err != nil {
+		return nil, err
+	}
 	temp := filepath.Join(h.Config.Data, "tmp")
 	if err := os.MkdirAll(temp, 0700); err != nil {
 		return nil, err
@@ -154,6 +160,7 @@ func New(h *apphost.Host) (apphost.Application, error) {
 	config.FilesBasePath.Set(filepath.Join(core, "attachments"))
 	config.ServiceSecret.Set(string(secret))
 	config.ServicePublicURL.Set(h.Config.Origin + "/")
+	config.CorsOrigins.Set([]string{webOrigin})
 	config.ServiceEnableRegistration.Set(false)
 	config.AuthLocalEnabled.Set(false)
 	config.AuthOpenIDEnabled.Set(false)
@@ -194,6 +201,14 @@ func New(h *apphost.Host) (apphost.Application, error) {
 	return a, nil
 }
 
+func nativeWebOrigin(raw string) (string, error) {
+	u, err := url.Parse(raw)
+	if err != nil || u.Host == "" || u.User != nil || (u.Scheme != "http" && u.Scheme != "https") {
+		return "", errors.New("configured HTTP or HTTPS origin is required")
+	}
+	return u.Scheme + "://" + u.Host, nil
+}
+
 func (a *App) Run(ctx context.Context) error {
 	<-ctx.Done()
 	cron.Stop()
@@ -213,7 +228,11 @@ func (a *App) gateway() http.Handler {
 		token, err := a.coreToken(r.Context(), session, cookie.Value)
 		if err != nil {
 			a.Host.Log.Error("ticket identity could not be resolved", "kind", fmt.Sprintf("%T", err))
-			apphost.Problem(w, 401, "Reconnect your My Tickets session with MyAccounts")
+			if errors.Is(err, errInactiveTicketAccount) {
+				apphost.Problem(w, 403, "Your ticket account is inactive. Contact your Workspace administrator.")
+				return
+			}
+			apphost.Problem(w, 503, "Your ticket account could not be prepared. Retry in a moment; your Workspace sign-in is retained.")
 			return
 		}
 		r = r.Clone(r.Context())
@@ -256,21 +275,22 @@ func (a *App) coreToken(ctx context.Context, session apphost.Session, rawCookie 
 		return "", err
 	}
 	if !found {
-		u, err = auth.CreateUserWithRandomUsername(s, &user.User{Issuer: session.User.Issuer, Subject: session.User.Subject, Name: session.User.Name, Email: session.User.Email})
+		u, err = auth.CreateUserWithRandomUsername(s, &user.User{Issuer: session.User.Issuer, Subject: session.User.Subject, Name: session.User.Name, Email: session.User.Email}, user.CreateUserOptions{SkipEmailConfirm: true, AllowMissingExternalEmail: true})
 		if err != nil {
 			return "", err
 		}
 	}
 	if u.Status != user.StatusActive {
-		return "", errors.New("ticket account is inactive")
+		return "", errInactiveTicketAccount
 	}
-	if u.Name != session.User.Name || u.IsAdmin != (session.User.Role == "owner") {
+	if u.Name != session.User.Name || u.Email != session.User.Email || u.IsAdmin != (session.User.Role == "owner") {
 		u.Name = session.User.Name
+		u.Email = session.User.Email
 		u.IsAdmin = session.User.Role == "owner"
 		if err = user.InvalidateSessionAuthCacheOnCommit(s, u.ID); err != nil {
 			return "", err
 		}
-		if _, err = s.ID(u.ID).Cols("name", "is_admin").Update(u); err != nil {
+		if _, err = s.ID(u.ID).Cols("name", "email", "is_admin").Update(u); err != nil {
 			return "", err
 		}
 	}
