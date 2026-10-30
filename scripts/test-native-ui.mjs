@@ -48,6 +48,10 @@ try{
  await page.getByRole('button',{name:'Add label',exact:true}).click()
  await page.getByRole('button',{name:'Remove label Release readiness',exact:true}).waitFor()
  await page.screenshot({path:out+'/issue-detail.png',fullPage:true})
+ await page.setViewportSize({width:375,height:812})
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Issue detail toolbar overflows a phone viewport')
+ await page.screenshot({path:out+'/mobile-issue-detail.png',fullPage:true})
+ await page.setViewportSize({width:1440,height:1000})
  const me=await (await context.request.get(base+'/api/me')).json()
  const headers={'X-CSRF-Token':me.csrf,'X-Workspace-Expected-Account':me.user.id,Origin:base}
  const catalog=await (await context.request.get(base+'/api/v2/tickets/catalog')).json()
